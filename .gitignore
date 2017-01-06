@@ -64,3 +64,4 @@ node_modules
 .idea
 bower_components
 __pycache__
+venv
