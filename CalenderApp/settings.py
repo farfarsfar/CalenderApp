@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'event',
     'rest_framework',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -57,8 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # 'templates',
-            # 'eventcal/templates',
+            os.path.join(BASE_DIR, 'frontend/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,4 +130,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+# [ROOTS]
+STATIC_ROOT = os.path.join(BASE_DIR, 'frontend')
+
+# [STATIC & MEDIA URLS]
+STATIC_URL = 'frontend/'
+MEDIA_URL = 'frontend/media/'
+
+# [STATIC & MEDIA DIRS]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/webpack_bundles/'),
+)
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'webpack_bundles/', # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
