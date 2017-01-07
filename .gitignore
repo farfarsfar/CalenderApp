@@ -67,3 +67,4 @@ __pycache__
 venv
 frontend/webpack_bundles/
 webpack-stats.json
+db.sqlite3
