@@ -12,5 +12,6 @@ export default function eventListController($scope) {
                        time: new Date().toLocaleTimeString(),
                        description: $scope.addMe };
     $scope.events.push(newEvent);
+    $scope.addMe = '';
   }
 }
