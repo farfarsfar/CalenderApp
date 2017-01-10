@@ -1,17 +1,18 @@
-export default function eventListController($scope) {
+export default function() {
+  var hej = this;
   this.$onInit = console.log('event component initialized');
-  $scope.events = [
+  this.events = [
     {
       date: '23 aug 2017',
       time: '21:44',
       description: 'See Charles'
     }
   ];
-  $scope.addItem = () => {
+  this.addItem = () => {
     const newEvent = { date: new Date().toLocaleDateString(),
                        time: new Date().toLocaleTimeString(),
-                       description: $scope.addMe };
-    $scope.events.push(newEvent);
-    $scope.addMe = '';
+                       description: this.addMe };
+    this.events.push(newEvent);
+    this.addMe = '';
   }
 }
