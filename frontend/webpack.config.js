@@ -10,7 +10,8 @@ module.exports = {
   },
   output: {
     path: path.resolve('./frontend/webpack_bundles/'),
-    filename: "[name]-[hash].js"
+    filename: "[name]-[hash].js",
+    publicPath: 'http://localhost:8000/frontend/webpack_bundles/',
   },
   plugins: [
     new BundleTracker({filename: './frontend/webpack-stats.json'})
