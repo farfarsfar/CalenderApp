@@ -63,7 +63,8 @@ $RECYCLE.BIN/
 node_modules
 .idea
 bower_components
-*/__pycache__/
+__pycache__
+__pyCache__
 venv
 frontend/webpack_bundles/
 webpack-stats.json
