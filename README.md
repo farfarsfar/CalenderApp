@@ -1,6 +1,13 @@
 # Calender app
 
-[TOC]
+- [Calender app](#calender-app)
+  * [Requirements](#requirements)
+  * [First Time Instructions](#first-time-instructions)
+  * [Docker](#docker)
+    + [Info](#info)
+    + [Commands](#commands)
+  * [File Structure](#file-structure)
+
 
 ## Requirements
 
