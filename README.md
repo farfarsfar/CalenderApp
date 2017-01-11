@@ -19,6 +19,8 @@
 
 
 
+
+
 ## First Time Instructions
 
 
@@ -101,3 +103,4 @@ $ docker-compose up --build
   - templates - Django Templates (uses Django Language)
   - scss - App Styles
   - webpack_bundles - files being generated from Webpack
+- manage.py - Manage Django Project
