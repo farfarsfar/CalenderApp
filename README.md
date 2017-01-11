@@ -94,16 +94,10 @@ $ docker-compose up --build
 
 ## File Structure
 
-CalenderApp - Django Project Files
-
-event - Backend App Files
-
-frontend - All Frontend files
-
-​	app - frontend files
-
-​	templates - Django Templates (uses Django Language)
-
-​	scss - App Styles
-
-​	webpack_bundles - files being generated from Webpack
+- CalenderApp - Django Project Files
+- event - Backend App Files
+- frontend - All Frontend files
+  - app - frontend files
+  - templates - Django Templates (uses Django Language)
+  - scss - App Styles
+  - webpack_bundles - files being generated from Webpack
