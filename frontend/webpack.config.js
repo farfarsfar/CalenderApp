@@ -6,16 +6,18 @@ module.exports = {
   context: path.join(__dirname, '/app'),
   entry: {
     app: './app.js',
-    vendor: ['angular']
+    vendor: ['angular', 'angular-ui-router']
   },
   output: {
     path: path.resolve('./frontend/webpack_bundles/'),
     filename: "[name]-[hash].js",
     publicPath: 'http://localhost:8000/frontend/webpack_bundles/',
+    sourceMapFilename: '[file].map'
   },
   plugins: [
     new BundleTracker({filename: './frontend/webpack-stats.json'})
   ],
+  devtool: 'source-map',
   module: {
     loaders: [
       {test: /\.scss$/, loaders: ["style-loader", "css-loader", "sass-loader"]},

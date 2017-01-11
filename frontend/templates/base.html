@@ -10,8 +10,9 @@
     <title>Base Template</title>
 </head>
 <body ng-app='app'>
-  <h1>Hello World!</h1>
-  <event-list></event-list>
+  <a ui-sref="test" ui-sref-active="active">Test</a>
+  <a ui-sref="events" ui-sref-active="active">Events</a>
+  <div ui-view></div>
   {% render_bundle 'vendor' 'js' %}
   {% render_bundle 'app' 'js' %}
 </body>

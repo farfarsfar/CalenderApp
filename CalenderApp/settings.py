@@ -135,7 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'frontend')
 
 # [STATIC & MEDIA URLS]
 STATIC_URL = '/frontend/webpack_bundles/'
-MEDIA_URL = 'frontend/media/'
+MEDIA_URL = '/frontend/media/'
 
 # [STATIC & MEDIA DIRS]
 STATICFILES_DIRS = (
