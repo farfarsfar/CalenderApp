@@ -13,7 +13,6 @@ def home(req):
 
 
 class EventsList(APIView):
-
     def get(self, request):
         # Get Objects from Model
         events = Event.objects.all()
@@ -23,4 +22,8 @@ class EventsList(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        pass
+        serializer = EventSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
