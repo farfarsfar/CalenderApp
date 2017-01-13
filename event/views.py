@@ -14,6 +14,7 @@ def home(req):
 
 
 class EventsList(APIView):
+    # Get list of Events
     def get(self, request):
         # Get Objects from Model
         events = Event.objects.all()
@@ -22,6 +23,7 @@ class EventsList(APIView):
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
 
+    # Add new Event
     def post(self, request):
         serializer = EventSerializer(data=request.data)
         if serializer.is_valid():
@@ -31,11 +33,13 @@ class EventsList(APIView):
 
 
 class EventDetail(APIView):
+    # Get single Event
     def get(self, request, pk, format=None):
         event = get_object_or_404(Event, pk=pk)
         serializer = EventSerializer(event)
         return Response(serializer.data)
 
+    # Update Event
     def put(self, request, pk, format=None):
         event = get_object_or_404(Event, pk=pk)
         serializer = EventSerializer(event, data=request.data)
@@ -44,6 +48,7 @@ class EventDetail(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    # Delete Event
     def delete(self, request, pk, format=None):
         event = get_object_or_404(Event, pk=pk)
         event.delete()

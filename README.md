@@ -104,3 +104,112 @@ $ docker-compose up --build
   - scss - App Styles
   - webpack_bundles - files being generated from Webpack
 - manage.py - Manage Django Project
+
+
+
+## REST API
+
+### Get a list of all Events. 
+
+**Request**
+
+```javascript
+GET http://localhost:8000/api/
+```
+
+**Allowed For:**
+
+- Public
+
+**Example Response**
+
+```json
+STATUS: HTTP 200 OK
+Content-Type: application/json
+
+
+[
+    {
+        "id": 2,
+        "Title": "Event 2",
+        "Start_Time": "2017-01-11T10:44:12.030105Z",
+        "End_Time": "2017-01-11T11:01:04.537832Z"
+    },
+    {
+        "id": 3,
+        "Title": "Event 1",
+        "Start_Time": "2017-01-11T10:44:12.030105Z",
+        "End_Time": "2017-01-11T11:01:04.537832Z"
+    }
+]
+```
+
+
+
+### Create Event
+
+```javascript
+POST http://localhost:8000/api/
+```
+**Allowed For:**
+
+- Administrators
+
+**Example Response**
+
+```json
+Status: HTTP 201 Created
+Content-Type: application/json
+
+{
+    "id": 4,
+    "Title": "Event 432",
+    "Start_Time": "2017-01-11T10:44:12.030105Z",
+    "End_Time": "2017-01-11T11:01:04.537832Z"
+}
+```
+
+
+
+### Update Event
+
+```javascript
+PUT http://localhost:8000/api/{event_id}
+```
+
+**Allowed For:**
+
+- Administrators
+
+**Example Response**
+
+```json
+Status: HTTP 200 OK
+Content-Type: application/json
+
+{
+    "id": 4,
+    "Title": "Event 1",
+    "Start_Time": "2017-01-11T10:44:12.030105Z",
+    "End_Time": "2017-01-11T11:01:04.537832Z"
+}
+```
+
+
+
+### Delete Event
+
+```javascript
+DELETE http://localhost:8000/api/{event_id}
+```
+
+**Allowed For:**
+
+- Administrators
+
+**Example Response**
+
+```javascript
+HTTP 204 No Content
+Content-Type: application/json
+```
