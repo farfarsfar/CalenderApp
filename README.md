@@ -7,6 +7,7 @@
     + [Info](#info)
     + [Commands](#commands)
   * [File Structure](#file-structure)
+  * [Rest API](#rest-api)
 
 
 ## Requirements
