@@ -7,7 +7,10 @@
       <p>{{event.description}}</p>
     </li>
   </ul>
-  <input ng-model='$ctrl.addMe'>
-  <button ng-click='$ctrl.addItem()'>New event</button>
-  <div>{{this.addMe}}</div>
+  <a href='' ng-click="isEventModalOpen = !isEventModalOpen">New event</a>
+  <div ng-show="isEventModalOpen" id="eventModal">
+    <input ng-model='$ctrl.addMe'>
+    <button ng-click='$ctrl.addItem()'>New event</button>
+  </div>
+  <div>{{$ctrl.addMe}}</div>
 </div>
