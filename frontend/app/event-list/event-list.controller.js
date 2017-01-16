@@ -1,5 +1,4 @@
 export default function() {
-  var hej = this;
   this.$onInit = console.log('event component initialized');
   this.events = [
     {
