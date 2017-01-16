@@ -3,7 +3,7 @@ import '../scss/app.scss';
 
 var routerApp = angular.module('app', ['ui.router', 'eventList']);
   
-routerApp.config(function($stateProvider) {
+routerApp.config(function($stateProvider, $urlRouterProvider) {
     var eventList = {
       name: 'events',
       url: '/events',
@@ -16,16 +16,6 @@ routerApp.config(function($stateProvider) {
     }
     $stateProvider.state(testState);
     $stateProvider.state(eventList);
-    /*$stateProvider
-        
-        // HOME STATES AND NESTED VIEWS ========================================
-        .state('events', {
-            url: '/events',
-            component: 'eventList'
-        })
-        
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-        .state('about', {
-            // we'll get to this in a bit       
-        });*/
+    
+    $urlRouterProvider.otherwise('/events');
 });
