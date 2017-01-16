@@ -9,7 +9,7 @@
   </ul>
   <a href='' ng-click="isEventModalOpen = !isEventModalOpen">New event</a>
   <div ng-show="isEventModalOpen" id="eventModal">
-    <input ng-model='$ctrl.addMe'>
+    <input ng-model='$ctrl.addMe' ng-change='$ctrl.sayHiOnChange($ctrl.addMe)'>
     <button ng-click='$ctrl.addItem()'>New event</button>
   </div>
   <div>{{$ctrl.addMe}}</div>
