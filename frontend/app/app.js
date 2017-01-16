@@ -3,7 +3,7 @@ import '../scss/app.scss';
 
 var routerApp = angular.module('app', ['ui.router', 'eventList']);
   
-routerApp.config(function($stateProvider, $urlRouterProvider) {
+routerApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     var eventList = {
       name: 'events',
       url: '/events',
@@ -18,4 +18,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state(eventList);
     
     $urlRouterProvider.otherwise('/events');
+
+// to avoid csrf error for authenticated requests
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 });

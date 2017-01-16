@@ -1,37 +1,37 @@
+import moment from 'moment';
+
 export default function($http) {
-  this.$onInit = console.log('event component initialized');
-  this.events = [
-    {
-      date: '23 aug 2017',
-      time: '21:44',
-      description: 'See Charles'
-    }
-  ];
+  this.$onInit = () => this.fetchEvents();
+  this.events;
+
   this.addItem = () => {
-    const newEvent = { date: new Date().toLocaleDateString(),
-                       time: new Date().toLocaleTimeString(),
-                       description: this.addMe };
-    this.events.push(newEvent);
-    const toPost =  { "Title": "Event 432",
-                      "Start_Time": "2017-01-11T10:44:12.030105Z",
-                      "End_Time": "2017-01-11T11:01:04.537832Z"
-                    };
+    const newEvent = { 
+      title: this.addMe,
+      startTime: moment(),
+      endTime: moment('2017-01-19 22:00')
+    };
+    const toPost = { 
+      "Title": newEvent.title,
+      "Start_Time": newEvent.startTime,
+      "End_Time": newEvent.endTime
+    };
     this.postEvent(toPost);
     this.fetchEvents();
 
     this.addMe = '';
-  }
+  };
   this.sayHiOnChange = (msg) => {
     console.log(`input field says ${msg}`)
   }
   this.fetchEvents = () => {
     $http.get('/api/').then((resp) => {
       console.log("success: ", resp);
+      this.events = resp.data;
     }, (err) => { 
       console.log("error: ", err)
     }
-    )
-  }
+    );
+  };
   this.postEvent = (event) => {
     $http({
       method: 'POST',

@@ -2,15 +2,14 @@
   <h2>Events</h2>
   <ul>
     <li ng-repeat='event in $ctrl.events'>
-      <span>{{event.date}}</span>
-      <span>{{event.time}}</span>
-      <p>{{event.description}}</p>
+      <p>{{event.Title}}</p>
+      <span>{{event.Start_Time}}</span>
+      <span>{{event.End_Time}}</span>
     </li>
   </ul>
   <a href='' ng-click="isEventModalOpen = !isEventModalOpen">New event</a>
-  <div ng-show="isEventModalOpen" id="eventModal">
+  <div id='new-event' ng-show="isEventModalOpen" id="eventModal">
     <input ng-model='$ctrl.addMe' ng-change='$ctrl.sayHiOnChange($ctrl.addMe)'>
     <button ng-click='$ctrl.addItem()'>New event</button>
   </div>
-  <div>{{$ctrl.addMe}}</div>
 </div>

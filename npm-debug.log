@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/fabian/.nvm/versions/node/v5.10.1/bin/node',
+1 verbose cli   '/Users/fabian/.nvm/versions/node/v5.10.1/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'start' ]
+2 info using npm@3.8.3
+3 info using node@v5.10.1
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle CalenderApp@1.0.0~prestart: CalenderApp@1.0.0
+6 silly lifecycle CalenderApp@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle CalenderApp@1.0.0~start: CalenderApp@1.0.0
+8 verbose lifecycle CalenderApp@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle CalenderApp@1.0.0~start: PATH: /Users/fabian/.nvm/versions/node/v5.10.1/lib/node_modules/npm/bin/node-gyp-bin:/Users/fabian/FEND15/CalenderApp/node_modules/.bin:/Users/fabian/.nvm/versions/node/v5.10.1/bin:/Users/fabian/.rbenv/shims:/Users/fabian/.nvm/versions/node/v5.10.1/bin:/Users/fabian/.pyenv/shims:/Users/fabian/.rbenv/shims:/Users/fabian/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
+10 verbose lifecycle CalenderApp@1.0.0~start: CWD: /Users/fabian/FEND15/CalenderApp
+11 silly lifecycle CalenderApp@1.0.0~start: Args: [ '-c',
+11 silly lifecycle   'webpack --watch --config \'frontend/webpack.config.js\'' ]
+12 info lifecycle CalenderApp@1.0.0~start: Failed to exec start script
+13 verbose stack Error: CalenderApp@1.0.0 start: `webpack --watch --config 'frontend/webpack.config.js'`
+13 verbose stack spawn ENOENT
+13 verbose stack     at ChildProcess.<anonymous> (/Users/fabian/.nvm/versions/node/v5.10.1/lib/node_modules/npm/lib/utils/spawn.js:17:16)
+13 verbose stack     at emitTwo (events.js:100:13)
+13 verbose stack     at ChildProcess.emit (events.js:185:7)
+13 verbose stack     at maybeClose (internal/child_process.js:850:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+14 verbose pkgid CalenderApp@1.0.0
+15 verbose cwd /Users/fabian/FEND15/CalenderApp
+16 error Darwin 15.6.0
+17 error argv "/Users/fabian/.nvm/versions/node/v5.10.1/bin/node" "/Users/fabian/.nvm/versions/node/v5.10.1/bin/npm" "run" "start"
+18 error node v5.10.1
+19 error npm  v3.8.3
+20 error file sh
+21 error code ELIFECYCLE
+22 error errno ENOENT
+23 error syscall spawn
+24 error CalenderApp@1.0.0 start: `webpack --watch --config 'frontend/webpack.config.js'`
+24 error spawn ENOENT
+25 error Failed at the CalenderApp@1.0.0 start script 'webpack --watch --config 'frontend/webpack.config.js''.
+25 error Make sure you have the latest version of node.js and npm installed.
+25 error If you do, this is most likely a problem with the CalenderApp package,
+25 error not with npm itself.
+25 error Tell the author that this fails on your system:
+25 error     webpack --watch --config 'frontend/webpack.config.js'
+25 error You can get information on how to open an issue for this project with:
+25 error     npm bugs CalenderApp
+25 error Or if that isn't available, you can get their info via:
+25 error     npm owner ls CalenderApp
+25 error There is likely additional logging output above.
+26 verbose exit [ 1, true ]
