@@ -27,36 +27,35 @@
 
 
 
- 1. Clone the project
+1. Clone the project
 
-```
-$ git clone git@github.com:Ballpin/CalenderApp.git
-```
+ ```
+ $ git clone git@github.com:Ballpin/CalenderApp.git
+ ```
 
- 2. Migrate the database
+2. Migrate the database
 
+ ```
+ $ docker-compose run web python manage.py migrate
+ ```
 
-```
-$ docker-compose run web python manage.py migrate
-```
+3. Run the Docker Container
 
- 3. Run the Docker Container
+ ```
+ $ docker-compose up
+ ```
 
-```
-$ docker-compose up
-```
+4. Run Create Super User Wizard, follow the steps.
 
- 4. Run Create Super User Wizard, follow the steps.
+ ```
+ $ docker-compose run web python manage.py createsuperuser
+ ```
 
-```
-$ docker-compose run web python manage.py createsuperuser
-```
+5. Migrate the database
 
- 5. Migrate the database
-
-```
-$ docker-compose run web python manage.py migrate
-```
+ ```
+ $ docker-compose run web python manage.py migrate
+ ```
 
 
 
