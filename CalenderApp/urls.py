@@ -17,14 +17,16 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
+from django.contrib.auth import views as auth_views, urls
 from rest_framework.urlpatterns import format_suffix_patterns
 from event import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('event.urls')),
     url(r'^api/$', views.EventsList.as_view()),
     url(r'^api/(?P<pk>[0-9]+)$', views.EventDetail.as_view()),
+    url('^accounts/', include('django.contrib.auth.urls')),
+    url(r'', include('event.urls')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -160,3 +160,7 @@ WEBPACK_LOADER = {
         'IGNORE': ['.+\.hot-update.js', '.+\.map']
     }
 }
+
+
+# AUTH Settings
+LOGIN_REDIRECT_URL = '/#!/events/admin'

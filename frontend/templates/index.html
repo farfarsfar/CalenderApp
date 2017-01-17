@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div ng-app='app'>
+    <a ui-sref="admin" ui-sref-active="active">Admin</a>
+    <a ui-sref="events" ui-sref-active="active">Events</a>
+    <div ui-view></div>
+  </div>
+{% endblock %}

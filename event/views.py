@@ -10,7 +10,7 @@ from .seriliazers import EventSerializer
 
 # Create your views here.
 def home(req):
-    return render(req, 'base.html')
+    return render(req, 'index.html')
 
 
 class EventsList(APIView):
