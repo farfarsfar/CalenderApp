@@ -7,6 +7,7 @@
     + [Info](#info)
     + [Commands](#commands)
   * [File Structure](#file-structure)
+  * [Account System](#account-system)
   * [Rest API](#rest-api)
 
 
@@ -26,32 +27,32 @@
 
 
 
-1. Clone the project
+ 1. Clone the project
 
 ```
 $ git clone git@github.com:Ballpin/CalenderApp.git
 ```
 
-2. Migrate the database
+ 2. Migrate the database
 
 
 ```
 $ docker-compose run web python manage.py migrate
 ```
 
-3. Run the Docker Container
+ 3. Run the Docker Container
 
 ```
 $ docker-compose up
 ```
 
-4. Run Create Super User Wizard, follow the steps.
+ 4. Run Create Super User Wizard, follow the steps.
 
 ```
 $ docker-compose run web python manage.py createsuperuser
 ```
 
-5. Migrate the database
+ 5. Migrate the database
 
 ```
 $ docker-compose run web python manage.py migrate
@@ -67,29 +68,37 @@ When using this docker container there is no need to build it over and over unle
 
 
 
+**Important:**  Always run webpack before or after django server is up. See below for the command you need to run.
+
+```bash
+$ npm start
+```
+
+
+
 ### Commands
 
 Run Docker Container
 
-```
+```bash
 $ docker-compose up
 ```
 
 Stop Docker Container
 
-```
+```bash
 $ docker-compose stop
 ```
 
 Build Docker Container
 
-```
+```bash
 $ docker-compose build
 ```
 
 Rebuild & Run Docker Container
 
-```
+```bash
 $ docker-compose up --build
 ```
 
@@ -102,9 +111,30 @@ $ docker-compose up --build
 - frontend - All Frontend files
   - app - frontend files
   - templates - Django Templates (uses Django Language)
+    - registration - Account Templates
+    - base.html - Base Template
+    - index.html - Main Page Template
   - scss - App Styles
-  - webpack_bundles - files being generated from Webpack
+  - webpack_bundles - files being generated from Webpack / Path for all static files that DJango uses.
 - manage.py - Manage Django Project
+
+
+
+
+## Account System
+
+**Login Page** 
+
+http://localhost:8000/accounts/login
+
+**Logout Page**
+
+http://localhost:8000/accounts/logout
+
+**Reset Password**
+
+http://localhost:8000/accounts/password_reset
+
 
 
 
