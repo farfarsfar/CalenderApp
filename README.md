@@ -72,7 +72,7 @@ When using this docker container there is no need to build it over and over unle
 Run Docker Container
 
 ```
-$ docker-compose run
+$ docker-compose up
 ```
 
 Stop Docker Container
