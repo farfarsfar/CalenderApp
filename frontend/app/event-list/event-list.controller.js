@@ -1,8 +1,9 @@
 import moment from 'moment';
 
-export default function($http) {
+export default function($scope, $http) {
   this.$onInit = () => this.fetchEvents();
   this.events;
+  this.errorText;
 
   this.addItem = () => {
     const newEvent = { 
@@ -16,8 +17,6 @@ export default function($http) {
       "End_Time": newEvent.endTime
     };
     this.postEvent(toPost);
-    this.fetchEvents();
-
     this.addMe = '';
   };
   this.sayHiOnChange = (msg) => {
@@ -37,12 +36,23 @@ export default function($http) {
       method: 'POST',
       url: '/api/',
       data: event
-    }).then(function successCallback(response) {
+    }).then((resp) => {
     // this callback will be called asynchronously
     // when the response is available
-    }, function errorCallback(response) {
+      this.fetchEvents();
+    }, (err) => {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
+      const error = () => { 
+        switch(err.status) {
+          case 403: 
+            return "It seems you are not authorized to post events. Try logging in as an administrator."
+          default:
+            return 'Unknown error. Please try again!'
+        }
+      }
+      this.errorText = error();
+      console.log(error());
   });
   }
 }
