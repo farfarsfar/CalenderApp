@@ -20,7 +20,7 @@ export default function($scope, $http) {
     this.addMe = '';
   };
   this.sayHiOnChange = (msg) => {
-    console.log(`input field says ${msg}`)
+    console.log(`input field say ${msg}`)
   }
   this.fetchEvents = () => {
     $http.get('/api/').then((resp) => {

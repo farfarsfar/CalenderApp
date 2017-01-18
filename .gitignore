@@ -70,4 +70,4 @@ venv
 frontend/webpack_bundles/
 webpack-stats.json
 db.sqlite3
-npm_debug.log
+npm-debug.log

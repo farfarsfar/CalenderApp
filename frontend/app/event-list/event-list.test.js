@@ -1,5 +1,4 @@
-import chai, { expect } from 'chai';
-import eventList from './event-list.component';
+import eventList, { hej } from './event-list.component';
 
 const exampleEvents = [
   {
@@ -28,13 +27,22 @@ describe('event list', () => {
   });
 
   it('should be defined', () => {
-    expect(controller).to.not.be.undefined;
+    expect(controller).not.toBeUndefined();
   });
   it('should have an example event set', () => {
-    expect(scope.events).to.deep.equal(exampleEvents);
+    expect(scope.events).toBe(exampleEvents);
   });
   it('should render the event text', () => {
     const p = element.find('p');
-    expect(p.text()).to.equal('See Charles');
+    expect(p.text()).toBe('See Charles');
   });
+});
+
+describe('hej', () => {
+  it('should return hej', () => {
+    expect(hej('Olle')).toBe('hej Olle');
+  });
+  it('should tell Kalle to bugger off', () => {
+    expect(hej('Kalle')).toBe('stick!');
+  })
 })

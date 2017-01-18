@@ -11,22 +11,15 @@ module.exports = function(config) {
           {test: /\.less$/, loader: "style!css!less"},
           {test: /\.html$/, loader: "ng-cache-loader"}
         ]
-      },
-      resolve: {
-        modulesDirectories: [
-          "",
-          "node_modules"
-        ]
       }
     },
     webpackMiddleware: {
       noInfo: true
     },
     preprocessors: {
-      'frontend/app/**/*': ['webpack'],
-      'frontend/app/**/*.js': ['coverage']
+      'frontend/app/tests.entry.js': ['webpack']
     },
-    reporters: ['progress'],
+    reporters: ['spec', 'coverage'],
     coverageReporter: {
       type : 'html',
       dir : 'coverage/'
@@ -34,18 +27,17 @@ module.exports = function(config) {
     files: [
       'frontend/app/tests.entry.js'
     ],
-    frameworks: ['mocha'],
+    frameworks: ['jasmine'],
     port: 9876,
-    colors: true,
     browsers: [
-      'PhantomJS'
+      'Chrome'
     ],
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG,
     plugins: [
       require('karma-coverage'),
       require('karma-spec-reporter'),
-      require('karma-mocha'),
-      require("karma-chai"),
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
       require("karma-phantomjs-launcher"),
       require("karma-firefox-launcher"),
       require("karma-webpack"),

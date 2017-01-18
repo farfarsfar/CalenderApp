@@ -8,3 +8,11 @@ export default angular.
     controller: eventListController
     }
   );
+
+export const hej = (a) => {
+  if (a == 'Kalle') {
+    return 'stick!'
+  } else {
+    return `hej ${a}`
+  }
+}
