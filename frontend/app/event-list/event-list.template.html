@@ -3,8 +3,9 @@
   <ul>
     <li ng-repeat='event in $ctrl.events'>
       <p>{{event.Title}}</p>
-      <span>{{event.Start_Time}}</span>
-      <span>{{event.End_Time}}</span>
+      <span>{{event.Start_Time | date: 'medium'}}</span>
+      <br>
+      <span>{{event.End_Time | date: 'medium'}}</span>
     </li>
   </ul>
   <a href='' ng-click="isEventModalOpen = !isEventModalOpen">New event</a>

@@ -1,6 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, '/app'),
@@ -15,7 +18,25 @@ module.exports = {
     sourceMapFilename: '[file].map'
   },
   plugins: [
-    new BundleTracker({filename: './frontend/webpack-stats.json'})
+    new BundleTracker({filename: './frontend/webpack-stats.json'}),
+    new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://localhost:8000/'
+    }),
+    new CopyWebpackPlugin([
+       { from: './**/*.html' },
+    ], {
+      copyUnmodified: false
+    }),
+    new CleanWebpackPlugin(['webpack_bundles'], {
+      root: __dirname,
+      verbose: true,
+      dry: false,
+      exclude: ['shared.js']
+    })
   ],
   devtool: 'source-map',
   module: {
