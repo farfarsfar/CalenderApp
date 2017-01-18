@@ -1,36 +1,49 @@
-var webpack = require('webpack'),
-    wpcfg   = require('./frontend/webpack.config.js');
+var webpack = require('webpack');
 
 module.exports = function(config) {
   config.set({
     basePath: '',
-    webpack: wpcfg,
-    webpackMiddleware: {
-      stats: {
-        colors: true,
-        chunks: false,
-        modules: false,
-        chunkModules: false,
-        assets: false
+    webpack: {
+      module: {
+        loaders: [
+          {test: /\.js$/, exclude: /node_modules/, loader: 'babel?presets[]=es2015'},
+          {test: /\.css$/, loader: "style!css"},
+          {test: /\.less$/, loader: "style!css!less"},
+          {test: /\.html$/, loader: "ng-cache-loader"}
+        ]
       },
+      resolve: {
+        modulesDirectories: [
+          "",
+          "node_modules"
+        ]
+      }
+    },
+    webpackMiddleware: {
       noInfo: true
     },
     preprocessors: {
-      'frontend/app/**/*': ['webpack']
+      'frontend/app/**/*': ['webpack'],
+      'frontend/app/**/*.js': ['coverage']
+    },
+    reporters: ['progress'],
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
     },
     files: [
       'frontend/app/tests.entry.js'
     ],
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha'],
     port: 9876,
     colors: true,
-    
     browsers: [
       'PhantomJS'
     ],
-    logLevel: config.LOG_WARN,
-    captureTimeout: 30000,
+    logLevel: config.LOG_INFO,
     plugins: [
+      require('karma-coverage'),
+      require('karma-spec-reporter'),
       require('karma-mocha'),
       require("karma-chai"),
       require("karma-phantomjs-launcher"),
