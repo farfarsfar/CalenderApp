@@ -1,4 +1,4 @@
-import eventList, { hej } from './event-list.component';
+import { hej } from './event-list.component';
 
 const exampleEvents = [
   {
@@ -29,8 +29,20 @@ describe('event list', () => {
   it('should be defined', () => {
     expect(controller).not.toBeUndefined();
   });
-  it('should have an example event set', () => {
-    expect(scope.events).toBe(exampleEvents);
+  it('should have a function to add an event', () => {
+    expect(controller.addItem).toBeDefined();
+  });
+  it('add event function should call post function', () => {
+    spyOn(controller, 'addItem').and.callThrough();
+    spyOn(controller, 'postEvent');
+    controller.addItem();
+    expect(controller.postEvent).toHaveBeenCalled();
+  });
+  it('should have a function to say hi on change', () => {
+    spyOn(controller, 'sayHiOnChange').and.callThrough();
+    spyOn(console, 'log');
+    controller.sayHiOnChange('hi');
+    expect(console.log).toHaveBeenCalledWith('input field say hi');
   });
   it('should render the event text', () => {
     const p = element.find('p');
