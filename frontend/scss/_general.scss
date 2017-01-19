@@ -1,0 +1,7 @@
+// Sticky Footer
+@include sticky-footer(30px, 'main');
+
+// Set Main to cover whole page
+main {
+  display: flex;
+}
