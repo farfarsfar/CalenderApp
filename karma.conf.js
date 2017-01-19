@@ -17,6 +17,7 @@ module.exports = function(config) {
       noInfo: true
     },
     preprocessors: {
+      'frontend/app/app.js': ['webpack'],
       'frontend/app/tests.entry.js': ['webpack']
     },
     reporters: ['spec', 'coverage'],
@@ -25,6 +26,10 @@ module.exports = function(config) {
       dir : 'coverage/'
     },
     files: [
+      './node_modules/angular/angular.js',
+      './node_modules/angular-ui-router/release/angular-ui-router.js',
+      './node_modules/angular-mocks/angular-mocks.js',
+      'frontend/app/app.js',
       'frontend/app/tests.entry.js'
     ],
     frameworks: ['jasmine'],

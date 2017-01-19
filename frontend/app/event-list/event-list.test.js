@@ -12,7 +12,7 @@ describe('event list', () => {
   var element;
   var scope;
   var controller;
-
+  
   beforeEach(() => {
     angular.mock.module('eventList');
 
@@ -23,16 +23,27 @@ describe('event list', () => {
     scope.$apply();
     controller = $componentController('eventList', {$scope: scope});
     });
-
   });
-
   it('should be defined', () => {
     expect(controller).not.toBeUndefined();
   });
+
+  describe('onInit', () => {
+    beforeEach(() => {
+      spyOn(controller, '$onInit').and.callThrough();
+      spyOn(controller, 'fetchEvents');
+      controller.$onInit();
+    });
+
+    it('should call fetchEvents onInit', () => {
+      expect(controller.fetchEvents).toHaveBeenCalled();
+    });
+  })
+  
   it('should have a function to add an event', () => {
     expect(controller.addItem).toBeDefined();
   });
-  it('add event function should call post function', () => {
+  it('should have an addItem function calling a postEvent function', () => {
     spyOn(controller, 'addItem').and.callThrough();
     spyOn(controller, 'postEvent');
     controller.addItem();
@@ -44,13 +55,13 @@ describe('event list', () => {
     controller.sayHiOnChange('hi');
     expect(console.log).toHaveBeenCalledWith('input field say hi');
   });
-  it('should render the event text', () => {
-    const p = element.find('p');
-    expect(p.text()).toBe('See Charles');
+  it('should render the event header', () => {
+    const p = element.find('h2');
+    expect(p.text()).toBe('Events');
   });
 });
 
-describe('hej', () => {
+describe('test conditional function', () => {
   it('should return hej', () => {
     expect(hej('Olle')).toBe('hej Olle');
   });
