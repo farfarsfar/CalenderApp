@@ -8,6 +8,7 @@ module.exports = function(config) {
         loaders: [
           {test: /\.js$/, exclude: /node_modules/, loader: 'babel?presets[]=es2015'},
           {test: /\.css$/, loader: "style!css"},
+          {test: /\.scss$/, loaders: ["style-loader", "css-loader", "sass-loader"]},
           {test: /\.less$/, loader: "style!css!less"},
           {test: /\.html$/, loader: "ng-cache-loader"}
         ]
