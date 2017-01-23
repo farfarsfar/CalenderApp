@@ -17,7 +17,12 @@
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     width: 360px;
   }
-
+  .title>h1 {
+    margin: 0 0 15px 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    color: #cccccc;
+  }
   input[type="text"]#id_username {
     font-family: "Roboto", sans-serif;
     outline: 0;
@@ -29,7 +34,7 @@
     box-sizing: border-box;
     font-size: 14px;
   }
-  input[type="text"]#id_password {
+  input[type="password"]#id_password {
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #f2f2f2;
@@ -55,11 +60,19 @@
     transition: all 0.3 ease;
     cursor: pointer;
   }
+  a.btn-primary {
+    @extend input[type="submit"];
+    text-decoration: none;
+    margin-top: 15px;
+    max-width: 330px;
+    display: block;
+    text-align: center;
+  }
 
   .form-group.password {
     margin-bottom: 15px;
   }
-  .login>.error {
+  .login > .error {
     background: #f2dede;
     color: #a94442;
     padding: 5px;
