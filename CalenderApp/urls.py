@@ -40,8 +40,10 @@ urlpatterns = [
         auth_views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^accounts/reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
 
+    url(r'api-auth/', include('accounts.urls')),
+
     # Swallow all the urls to Angular
-    url(r'', include('event.urls')),
+    #url(r'', include('event.urls')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
