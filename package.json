@@ -45,10 +45,12 @@
     "angular-ui-router": "^1.0.0-alpha.3",
     "babel-plugin-istanbul": "^3.1.2",
     "jasmine": "^2.5.3",
+    "jquery": "^3.1.1",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-spec-reporter": "^0.0.26",
-    "moment": "^2.17.1"
+    "moment": "^2.17.1",
+    "normalize-scss": "^6.0.0"
   }
 }
