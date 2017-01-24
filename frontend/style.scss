@@ -1,0 +1,637 @@
+$color_lightblue: rgb(54,198,211);
+$color_darkblue: rgb(54,65,80);
+$color_blue: rgb(101,155,225);
+$color_red: rgb(231,80,90);
+
+$font_white: white;
+
+$top_bar: 50px;
+$bottom_bar: 80px;
+$weekheader: rgb(51,122,183);
+
+$weekheader_width: 13%;
+
+$button-radius: 3px;
+
+
+@media only screen and (min-width: 400px){
+	#loggain { margin-left: -170px; } 
+	#month_wrapper { width: 100% !important; margin: 0px auto; }
+	.weekday { width: 14.50% !important; }
+	.day, .daytoday { width: 12.185vw !important; height: 18.5vw !important; }
+	#today { 
+		display: block;
+		float: left !important;
+		background-color: $color_red !important;
+		margin: 1px;
+		margin-left: -100px !important;
+	}
+	#login {
+	top: 10% !important;
+	margin-left: -100px;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 90% !important;
+	//height: 350px;
+	button {
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+		margin-left: 70px !important;
+	}
+	
+}
+}
+
+@media only screen and (min-width: 500px){
+	//body { background-color: tan; }
+	#loggain { margin-left: -150px; } 
+	#lastmonth{ margin-left: 10vw !important; }
+	#nextmonth { margin-right: 10vw !important; }
+	.weekday{ width: 15.150% !important; }
+	.day, .daytoday { width: 12.32vw !important; height: 17.5vw !important;  }
+	#login {
+	top: 10% !important;
+	margin-left: -127px;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 90% !important;
+	//height: 350px;
+	button {
+		margin-left: 140px !important;
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 80px auto;
+	}
+		label {
+	margin-left: 110px;
+}
+label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {	margin-left: 110px;
+}
+	}
+}
+
+@media only screen and (min-width: 550px){
+	
+	.day, .daytoday { width: 12.36vw !important; height: 17.5vw !important;  }
+	#login {
+	top: 10% !important;
+	margin-left: -140px;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 90% !important;
+	//height: 350px;
+	button {
+		margin-left: 195px !important;
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+	label {
+	margin-left: 150px !important;
+}	
+
+	label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {	margin-left: 150px !important;
+}
+}
+
+@media only screen and (min-width: 600px){
+	
+	.day, .daytoday { width: 12.39vw !important; }
+	#login {
+	top: 10% !important;
+	margin-left: -150px;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 90% !important;
+	//height: 350px;
+	button {
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+}
+
+@media only screen and (min-width: 660px){
+	.day, .daytoday { width: 12.36vw !important; height: 13vw !important;  }
+	#login {
+	top: 10% !important;
+	margin-left: -168px;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 90% !important;
+	//height: 350px;
+	button {
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+}
+
+@media only screen and (min-width: 740px){
+	//body { background-color: darkseagreen; }
+	.weekday{ width: 15.750% !important; }
+	.day, .daytoday { width: 13.9845% !important; height: 13vw !important; }
+	#today { margin-left: 30px !important; }
+} 
+
+@media only screen and (min-width: 900px){
+	//body { background-color: pink; }
+  	#loggain { margin-left: -80px; } 
+  	#lastmonth { margin-left: 25vw !important; }
+	#nextmonth { margin-right: 25vw !important; }
+	.weekday{ width: 15.950% !important; }
+	.day, .daytoday { width: 14% !important; height: 11vw !important; }
+	#today { margin-left: 120px !important; }
+}
+
+@media only screen and (min-width: 1100px){
+	.day, .daytoday { width: 14.06% !important; height: 11vw !important;  }
+	#login {
+	top: 10% !important;
+	margin-left: auto;
+	margin-right: auto;
+	//display: block;
+	//background-color: rebeccapurple !important;
+	//padding: 10px;
+	width: 50% !important;
+	//height: 350px;
+	button {
+		margin-left: 220px !important;
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+	label {
+	margin-left: 170px !important;
+}	
+
+	label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {	margin-left: 170px !important;
+}
+}
+
+@media only screen and (min-width: 1200px){
+	.day, .daytoday { width: 14.09% !important; height: 8vw !important;  }
+	#login {
+	top: 10% !important;
+	margin-left: auto;
+	margin-right: auto;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 30% !important;
+	//height: 350px;
+	button {
+		margin-left: 195px !important;
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+	label {
+	margin-left: 130px !important;
+}	
+
+	label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {	margin-left: 130px !important;
+}
+}
+
+@media only screen and (min-width: 1440px){
+	//body { background-color: lightslategray; }
+	.weekday{ width: 14.90vw !important; }
+	.day, .daytoday { width: 12.65vw !important; height: 7vw !important; }
+	#today { margin-left: 250px !important; }
+	#login {
+	top: 10% !important;
+	margin-left: auto;
+	margin-right: auto;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 30% !important;
+	//height: 350px;
+	button {
+		margin-left: 195px !important;
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+	label {
+	margin-left: 130px !important;
+}	
+
+	label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {	margin-left: 130px !important;
+}
+} 
+
+@media only screen and (min-width: 1500px){
+	.day, .daytoday { width: 12.669vw !important; height: 7vw !important; }
+	#login {
+	top: 10% !important;
+	margin-left: auto;
+	margin-right: auto;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 30% !important;
+	//height: 350px;
+	button {
+		margin-left: 195px !important;
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+	label {
+	margin-left: 130px !important;
+}	
+
+	label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {	margin-left: 130px !important;
+}
+} 
+
+@media only screen and (min-width: 1650px){
+	//body { background-color: orange; }
+	.weekday{ width: 12.94vw !important; }
+	.day, .daytoday { width: 12.7vw !important; height: 5vw !important;  }
+	#login {
+	top: 10% !important;
+	margin-left: auto;
+	margin-right: auto;
+	//display: block;
+	//background-color: $color_lightblue;
+	//padding: 10px;
+	width: 30% !important;
+	//height: 350px;
+	button {
+		margin-left: 195px !important;
+		//display: block;
+		//background-color: $color_darkblue;
+		//border: 0px;
+		//border-radius: $button-radius;
+		//color: $font-white;
+		//padding: 8px 12px;
+		margin: 50px auto;
+	}
+	}
+	label {
+	margin-left: 130px !important;
+}	
+
+	label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {	margin-left: 130px !important;
+}
+} 
+
+.show { display: block; }
+.hide { display: none; }
+
+
+#wrapper {
+  width: 90%;
+  height: 50%;
+  margin: 30px auto;
+ // border: 2px solid red;
+  
+}
+
+header {
+  width: 100%;
+  height: $top_bar;
+  background-color: $color_darkblue;
+  color: $font_white;
+  font-size: 18px;
+  padding: 10px 0px 10px 20px;
+  display: flex;
+}
+/* button logga in */
+#loggain {
+  font-size: 12px;
+  background-color: $color_lightblue;
+  border: 0px;
+  padding: 4px 10px;
+  border-radius: $button-radius;
+  float: right;
+  right: -80%;
+  position: relative;
+}
+
+#month_wrapper {
+ 
+  width: 70%;
+  margin: 0px auto;
+  font-size: 20px;
+  text-align: center;
+  
+}
+#month,#lastmonth, #nextmonth {
+  display: inline-block;
+  height: 70px;
+  margin: 0px auto;
+  padding-top: 10px;
+}
+
+#lastmonth, #nextmonth {
+  display: inline-block;
+  width: 50px;
+
+  margin-top: -1px;
+  padding-top: 23px !important;
+}
+#lastmonth{
+  float: left;
+}
+#nextmonth {
+  float: right;
+}
+
+#weekday_wrapper {
+  display: flex;
+  color: $font_white;
+}
+.weekday{
+  height: 30px;
+  background-color: $weekheader;
+  width: $weekheader_width;
+  text-align: center;
+  margin: 1px;
+  padding: 5px 0 0 0;
+}
+
+#show_totaldays {
+	display: block;
+}
+
+.daytoday {
+	position: relative;
+	display: inline-block;
+	float: left;	
+	margin: 1px;
+	height: 10vw;
+	background-color: $color_red;
+	color: $font-white;
+	font-size: 13px;
+	padding: 3px 5px 0px 0px;
+	text-align: right;
+}
+
+
+div.unday {
+	position: relative;
+	display: inline-block;
+	float: left;
+	background-color: rgb(219,219,219) !important;
+}
+div {
+	.day {
+	position: relative;
+	display: inline-block;
+	float: left;	
+	margin: 1px;
+	height: 10vw;
+	background-color: ghostwhite;
+	
+	font-size: 13px;
+	padding: 3px 5px 0px 0px;
+	text-align: right;
+	}
+}
+
+
+
+#today {
+	display: block;
+	position: relative;
+	float: right !important;
+	background-color: $color_red !important;
+	margin: 1px;
+    left: 50% !important;
+}
+
+
+#bottomwrapper {
+	position: inherit;
+	background-color: $color_darkblue;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	padding: 20px 5vw;
+}
+
+.button {
+	border: 0px;
+	border-radius: $button-radius;
+	background-color: $color_blue;
+	margin: 0px 10px !important;
+	color: $font-white;
+	padding: 3px 12px !important;
+	font-size: 13px;
+}
+.button:first-child {
+	margin-right: 30px !important;
+}
+
+
+
+#login {
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	display: block;
+	background-color: $color_lightblue;
+	padding: 10px;
+	width: 380px;
+	height: 350px;
+	button {
+		display: block;
+		background-color: $color_darkblue;
+		border: 0px;
+		border-radius: $button-radius;
+		color: $font-white;
+		padding: 8px 12px;
+		margin: 50px auto;
+	}
+	
+}
+
+label {
+	margin-left: 70px;
+}
+label:first-child {
+	margin-top: 50px;
+}
+input:first-child {
+	margin-top: 0px;
+	margin-bottom: 90px;
+}
+label:last-child {
+	
+}
+input {
+	width: 220px;
+	height: 40px;
+	border: 1px solid white;
+	
+	margin-left: 70px;
+}
+.glyphicon-remove {
+	float: right;
+	display: block;
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	margin-left: 300px;
+}
+
+.eventdiv {
+	display: flex;
+	position:relative;
+	background-color: white !important;
+	//color: darkolivegreen;
+	//width: 101%;
+	margin-left: 4px;
+	margin-bottom: 3px;
+	padding: 2px;
+	border-radius: $button-radius;
+	line-height: 13px;
+	text-align: left;
+	font-size: 13px;
+	box-shadow: 1px 0px 3px rgb(38,38,38);
+	.tidstart{
+		background-color: white;
+        text-align: center;
+		padding-top: 1px;
+		color: black;
+		float: left
+	}
+	
+	.eventtital {
+		padding-top: 1px;
+		display: block;
+		position: relative;
+		//font-size: 12px;	
+		text-align: right;
+		background-color: white;
+		font: right;
+		color: mediumseagreen;
+		margin-left: 5px;
+		;
+     }
+}
+
+

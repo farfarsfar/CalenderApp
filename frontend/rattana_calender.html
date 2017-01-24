@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="rattana_angular">
+
+<head>
+	<meta charset="utf-8">
+	<title> rattana calender </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="moment.js"></script>
+	<script src="app.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="style.css"> </head>
+
+<body ng-controller="first_month" ng-init="initCal();">
+	
+<div id="wrapper">
+  <header> 
+    <span id="logo"> Favana Calender </span>
+    <button id="loggain" ng-click="loginfunction()"> LOGGA IN </button>
+  </header>
+ 
+<div id="month_wrapper">
+  <div id="lastmonth" class="glyphicon glyphicon-chevron-left text-center" ng-click="last_month()"> </div>
+  <div id="month"><span id="current_month"> </span>
+  <br> <span id="show_howmany_day"></span> </div>
+  <div id="nextmonth" class="glyphicon glyphicon-chevron-right text-center" ng-click="next_month()"> </div>
+</div>
+  
+  <div id="weekday_wrapper">
+    <div class="weekday"> SUN </div>
+    <div class="weekday"> MON </div>
+    <div class="weekday"> TIS </div>
+    <div class="weekday"> WED </div>
+    <div class="weekday"> THU </div>
+    <div class="weekday"> FRI </div>
+    <div class="weekday"> SAT </div>
+  </div>
+  <div id="show_totaldays"></div>
+  <div id="bottomwrapper"> 
+    <button class="button"> MONTH </button>
+    <button class="button"> WEEK </button>
+    <button class="button" id="today" ng-click="initCal()"> TODAY </button>
+  </div>
+</div>
+  
+
+<!-- log in -->
+	<div id="login" class="hide">
+		<div class="glyphicon glyphicon-remove" ng-click="closelogin()"></div>
+		<label for="user"> USER </label><br>
+		<input id="user" type="text"><br><br>
+		<label for="user"> PASSWORD </label><br>
+		<input type="password">
+		<button> LOGGA IN </button>
+	</div>
+
+ 
+	
+<script>
+	/*
+// this script for show month and click function  
+  
+  var time_now;
+  var time_from_next_month;
+  var time_from_last_month;
+  var z = 0;
+  var x = 0;
+  var start_day;
+  var month_header = document.getElementById('current_month');
+  
+  
+
+  
+
+  function next_month() {
+    $('.today').remove();
+    z += 1;
+    time_from_next_month = moment(time_from_last_month).add(z, 'M').format('YYYY, MMMM ');
+    month_header.innerHTML = time_from_next_month;
+    x = 0;
+    showday(time_from_next_month);
+  };
+  
+  
+   
+  var showdays;
+  
+  function showday(time_now){
+    
+    showdays = moment(time_now).daysInMonth();
+    document.getElementById('show_howmany_day').innerHTML = showdays+" days";
+    
+    $('.day').remove();
+    $('.today').remove();
+    start_day = moment(time_now).format('d');
+    insert_day();
+    
+  };
+    
+ 
+    function insert_day(){ 
+      var board = document.getElementById('show_totaldays'); 
+      for ( var j = 0; j < start_day; j++ ) { 
+        var backside = document.createElement( "div"); backside.innerHTML=' ' ; 
+        backside.className='day unday' ; 
+        board.appendChild(backside); 
+      } 
+      for ( var i=1 ; i <= showdays; i++ ){ 
+        var backside = document.createElement( "div"); backside.innerHTML='' +[i]+ ''; 
+        backside.className='day' ; 
+        board.appendChild(backside); 
+        
+        var qqqqq = moment().format('DD');
+        
+        if (qqqqq == i  ) { backside.className='today' ; }
+        
+        
+      } 
+    };
+  
+  */
+</script> 
+		
+
+</body>
+
+</html>
