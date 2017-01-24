@@ -9,10 +9,10 @@ $top_bar: 50px;
 $bottom_bar: 80px;
 $weekheader: rgb(51,122,183);
 
-$weekheader_width: 13%;
+$weekheader_width: 36%;
 
 $button-radius: 3px;
-
+/*
 
 @media only screen and (min-width: 400px){
 	#loggain { margin-left: -170px; } 
@@ -369,7 +369,7 @@ input {	margin-left: 130px !important;
 	//padding: 10px;
 	width: 30% !important;
 	//height: 350px;
-	button {
+	.button_view {
 		margin-left: 195px !important;
 		//display: block;
 		//background-color: $color_darkblue;
@@ -397,19 +397,24 @@ label:last-child {
 input {	margin-left: 130px !important;
 }
 } 
+*/
+$calender-size: 960;
+$cal-margins: 8;
+$calender-size-with-margins: $calender-size/7 - $cal-margins;
 
-.show { display: block; }
-.hide { display: none; }
 
 
 #wrapper {
-  width: 90%;
+  min-width: 110%;
+  max-width: 110%;
   height: 50%;
   margin: 30px auto;
- // border: 2px solid red;
-  
-}
+	
+* { box-sizing: border-box;}
 
+.show { display: block; }
+.hide { display: none; }
+	
 header {
   width: 100%;
   height: $top_bar;
@@ -418,17 +423,21 @@ header {
   font-size: 18px;
   padding: 10px 0px 10px 20px;
   display: flex;
+  position: inherit
 }
 /* button logga in */
 #loggain {
+  width: 80px;
+  height: 30px;
+  padding: 4px 10px;
+  color: $font_white;
   font-size: 12px;
   background-color: $color_lightblue;
   border: 0px;
-  padding: 4px 10px;
   border-radius: $button-radius;
-  float: right;
-  right: -80%;
+  left: 50%;
   position: relative;
+  padding-top: 5px;
 }
 
 #month_wrapper {
@@ -463,20 +472,43 @@ header {
 #weekday_wrapper {
   display: flex;
   color: $font_white;
+  width: $calender-size !important;
 }
 .weekday{
   height: 30px;
   background-color: $weekheader;
-  width: $weekheader_width;
   text-align: center;
   margin: 1px;
   padding: 5px 0 0 0;
+  width: $calender-size-with-margins+px;
 }
 
 #show_totaldays {
-	display: block;
-}
+	display: inline-block;
+	width: $calender-size+px;
+	.daytoday, .unday, .day {
+		width: $calender-size-with-margins+px !important;
+		display: inline-block;
+		margin: 1px;
+		height: 90px;
+	}
+	.daytoday{
+		background-color: $color_red;
+		position: relative;
+		float: left;
+	}
+	.unday{
+		background-color: darkgray !important;
+		position: relative;
+		float: left;
+	}
+	.day{
+		
+		background-color: ghostwhite;
 
+	}
+}
+/*
 .daytoday {
 	position: relative;
 	display: inline-block;
@@ -488,6 +520,7 @@ header {
 	font-size: 13px;
 	padding: 3px 5px 0px 0px;
 	text-align: right;
+	width: 13.5%;
 }
 
 
@@ -499,19 +532,20 @@ div.unday {
 }
 div {
 	.day {
+	width: 13.9%;
 	position: relative;
 	display: inline-block;
 	float: left;	
 	margin: 1px;
-	height: 10vw;
+	min-height: 80px;
 	background-color: ghostwhite;
-	
+	display: block;
 	font-size: 13px;
 	padding: 3px 5px 0px 0px;
 	text-align: right;
 	}
 }
-
+*/
 
 
 #today {
@@ -533,7 +567,7 @@ div {
 	padding: 20px 5vw;
 }
 
-.button {
+.button_view {
 	border: 0px;
 	border-radius: $button-radius;
 	background-color: $color_blue;
@@ -542,7 +576,7 @@ div {
 	padding: 3px 12px !important;
 	font-size: 13px;
 }
-.button:first-child {
+.button_view:first-child {
 	margin-right: 30px !important;
 }
 
@@ -603,7 +637,7 @@ input {
 	position:relative;
 	background-color: white !important;
 	//color: darkolivegreen;
-	//width: 101%;
+	width: 95%;
 	margin-left: 4px;
 	margin-bottom: 3px;
 	padding: 2px;
@@ -612,6 +646,7 @@ input {
 	text-align: left;
 	font-size: 13px;
 	box-shadow: 1px 0px 3px rgb(38,38,38);
+	
 	.tidstart{
 		background-color: white;
         text-align: center;
@@ -633,5 +668,9 @@ input {
 		;
      }
 }
+
+}
+
+
 
 
