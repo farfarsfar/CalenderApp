@@ -21,10 +21,6 @@ describe('eventAdmin component', () => {
     });
   });
 
-  afterEach(function() {
-    //$httpBackend.flush();
-    $httpBackend.verifyNoOutstandingRequest();
-  });
 
   it('should be defined', () => {
     expect(controller).not.toBeUndefined();
@@ -59,7 +55,22 @@ describe('eventAdmin component', () => {
   });
 
   describe('http requests', () => {
-    it('should call fetchEvents on succesful postEvent')
+    afterEach(function() {
+      $httpBackend.flush();
+      $httpBackend.verifyNoOutstandingRequest();
+    });
+    it('should make a get call onInit', () => {
+      $httpBackend.expectGET('/api/').respond(200, []);
+      controller.$onInit();
+    });
+    it('should make a get call in fetchEvents', () => {
+      $httpBackend.expectGET('/api/').respond(200, []);
+      controller.fetchEvents();
+    });
+    it('should make a post call in addItem', () => {
+      $httpBackend.expectPOST('/api/').respond(200, []);
+      controller.addItem();
+    })
   })
 });
 
