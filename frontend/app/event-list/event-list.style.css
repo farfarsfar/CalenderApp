@@ -1,0 +1,9 @@
+#new-event {
+  position: fixed;
+  right: 10em;
+  top: 10em;
+  border: 1px solid white;
+  max-width: 300px;
+  padding: 10em;
+  background: slategrey;
+}

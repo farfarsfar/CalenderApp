@@ -1,19 +1,42 @@
 {% load render_bundle from webpack_loader %}
-
-<!doctype html>
+{% load i18n %}
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Base Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <base href="/">
+  <title>{% block title %}User test{% endblock %}</title>
 </head>
-<body ng-app='app'>
-  <a ui-sref="test" ui-sref-active="active">Test</a>
-  <a ui-sref="events" ui-sref-active="active">Events</a>
-  <div ui-view></div>
+
+<body>
+  <div id="header">
+    {% if next %}
+      {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+          please login with an account that has access.</p>
+      {% else %}
+        <p>Please login to see this page.</p>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+
+  <footer>
+    {% block footer %}
+    {% endblock %}
+  </footer>
+
+
   {% render_bundle 'vendor' 'js' %}
   {% render_bundle 'app' 'js' %}
 </body>
+
 </html>

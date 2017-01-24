@@ -60,6 +60,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+coverage
 node_modules
 .idea
 bower_components
@@ -69,3 +70,4 @@ venv
 frontend/webpack_bundles/
 webpack-stats.json
 db.sqlite3
+npm-debug.log

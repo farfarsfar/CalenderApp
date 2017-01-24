@@ -1,3 +1,9 @@
-body {
-  background: red;
-}
+// Vendor
+@import '~normalize-scss/sass/normalize';
+
+// Mixins
+@import './mixins/sticky-footer';
+
+// App Styles
+@import "general";
+@import "login";

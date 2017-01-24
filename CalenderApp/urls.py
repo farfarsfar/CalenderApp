@@ -17,13 +17,31 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
+from django.contrib.auth import views as auth_views, urls
 from rest_framework.urlpatterns import format_suffix_patterns
 from event import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/$', views.EventsList.as_view()),
+    url(r'^api/(?P<pk>[0-9]+)$', views.EventDetail.as_view()),
+
+    # Django Auth Urls
+    # url('^accounts/', include('django.contrib.auth.urls')),
+
+    # Custom Auth URLS
+    url(r'^accounts/login/?$', auth_views.login, name='login'),
+    url(r'^accounts/logout/$', auth_views.logout, name='logout'),
+    url(r'^accounts/password_change/$', auth_views.password_change, name='password_change'),
+    url(r'^accounts/password_change/done/$', auth_views.password_change_done, name='password_change_done'),
+    url(r'^accounts/password_reset/$', auth_views.password_reset, name='password_reset'),
+    url(r'^accounts/password_reset/done/$', auth_views.password_reset_done, name='password_reset_done'),
+    url(r'^accounts/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        auth_views.password_reset_confirm, name='password_reset_confirm'),
+    url(r'^accounts/reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
+
+    # Swallow all the urls to Angular
     url(r'', include('event.urls')),
-    url(r'^api/', views.EventsList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

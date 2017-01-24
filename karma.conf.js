@@ -1,38 +1,49 @@
-var webpack = require('webpack'),
-    wpcfg   = require('./frontend/webpack.config.js');
+var webpack = require('webpack');
 
 module.exports = function(config) {
   config.set({
     basePath: '',
-    webpack: wpcfg,
+    webpack: {
+      module: {
+        loaders: [
+          {test: /\.js$/, exclude: /node_modules/, loader: 'babel?presets[]=es2015'},
+          {test: /\.css$/, loader: "style!css"},
+          {test: /\.scss$/, loaders: ["style-loader", "css-loader", "sass-loader"]},
+          {test: /\.less$/, loader: "style!css!less"},
+          {test: /\.html$/, loader: "ng-cache-loader"}
+        ]
+      }
+    },
     webpackMiddleware: {
-      stats: {
-        colors: true,
-        chunks: false,
-        modules: false,
-        chunkModules: false,
-        assets: false
-      },
       noInfo: true
     },
     preprocessors: {
-      'frontend/app/**/*': ['webpack']
+      'frontend/app/app.js': ['webpack'],
+      'frontend/app/tests.entry.js': ['webpack']
+    },
+    reporters: ['spec', 'coverage'],
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
     },
     files: [
+      './node_modules/angular/angular.js',
+      './node_modules/angular-ui-router/release/angular-ui-router.js',
+      './node_modules/angular-mocks/angular-mocks.js',
+      'frontend/app/app.js',
       'frontend/app/tests.entry.js'
     ],
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['jasmine'],
     port: 9876,
-    colors: true,
-    
     browsers: [
-      'PhantomJS'
+      'Chrome'
     ],
-    logLevel: config.LOG_WARN,
-    captureTimeout: 30000,
+    logLevel: config.LOG,
     plugins: [
-      require('karma-mocha'),
-      require("karma-chai"),
+      require('karma-coverage'),
+      require('karma-spec-reporter'),
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
       require("karma-phantomjs-launcher"),
       require("karma-firefox-launcher"),
       require("karma-webpack"),
