@@ -1,6 +1,5 @@
 import { hej } from './event-admin.component';
 
-
 describe('eventAdmin component', () => {
   var element;
   var scope;
@@ -11,20 +10,15 @@ describe('eventAdmin component', () => {
     angular.mock.module('eventAdmin');
 
     inject(function($rootScope, $compile, $componentController, _$httpBackend_){
+    $httpBackend = _$httpBackend_;
     scope = $rootScope.$new();
     element = angular.element('<event-admin></event-admin>');
     element = $compile(element)(scope);
     scope.$apply();
     controller = $componentController('eventAdmin', {$scope: scope});
-    $httpBackend = _$httpBackend_;
-    $httpBackend.verifyNoOutstandingRequest();
     });
   });
 
-  afterEach(function() {
-    //$httpBackend.flush();
-    $httpBackend.verifyNoOutstandingRequest();
-  });
 
   it('should be defined', () => {
     expect(controller).not.toBeUndefined();
@@ -59,7 +53,37 @@ describe('eventAdmin component', () => {
   });
 
   describe('http requests', () => {
-    it('should call fetchEvents on succesful postEvent')
+    afterEach(function() {
+      $httpBackend.verifyNoOutstandingRequest();
+    });
+    it('should make a get call onInit', () => {
+      $httpBackend.expectGET('/api/').respond(200, []);
+      controller.$onInit();
+      $httpBackend.flush();
+    });
+    it('should make a get call in fetchEvents', () => {
+      $httpBackend.expectGET('/api/').respond(200, []);
+      controller.fetchEvents();
+      $httpBackend.flush();
+    });
+    it('should make a post call in addItem', () => {
+      $httpBackend.expectPOST('/api/').respond(200, []);
+      controller.addItem();
+      $httpBackend.flush();
+    });
+    it('should make a postEvent call with correct post data', () => {})
+    it('should give an error message when not logged in as admin', () => {
+      $httpBackend.expectPOST('/api/').respond(403, []);
+      controller.postEvent();
+      $httpBackend.flush();
+      expect(controller.errorText).toBe("It seems you are not authorized to post events. Try logging in as an administrator.");
+    });
+    it('should give a default error message when something goes horribly wrong', () => {
+      $httpBackend.expectPOST('/api/').respond(466, []);
+      controller.postEvent();
+      $httpBackend.flush();
+      expect(controller.errorText).toBe('Unknown error. Please try again!');
+    });
   })
 });
 
