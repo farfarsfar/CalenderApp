@@ -87,21 +87,7 @@ export default function ($scope, $rootScope, $http) {
 		$scope.insert_day($rootScope.showdays = $scope.showdays_nextmonth, $rootScope.iddate);
 		$rootScope.x = 0;
 	};
-	// log in function
-	$scope.loginfunction = function () {
-		$('#login').removeClass('hide');
-		$('#login').removeClass('show');
-		$('#month_wrapper, #show_totaldays, #bottomwrapper, #weekday_wrapper').css({
-			'opacity': '.0'
-		});
-	}
-	$scope.closelogin = function () {
-		//$('.glyphicon-remove').removeClass('show');	
-		$('#login').addClass('hide');
-		$('#month_wrapper, #show_totaldays, #bottomwrapper, #weekday_wrapper').css({
-			'opacity': '1'
-		});
-	};
+	
 	$scope.showevent = function () {
 		var myEl = angular.element(document.querySelector('.daytoday'));
 		myEl.append('<div class="eventdiv"> <span class="tidstart">13:00 </span> <span class="eventtital"> group study </span>  </div> <div class="eventdiv"> <span class="tidstart">15:00</span> <span class="eventtital"> cooking </span> </div> <div class="eventdiv"> <span class="tidstart">20:00</span> <span class="eventtital"> watching tv </span>  </div>');
