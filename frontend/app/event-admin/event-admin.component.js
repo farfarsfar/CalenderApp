@@ -8,11 +8,3 @@ export default angular.
     controller: eventAdminController
     }
   );
-
-export const hej = (a) => {
-  if (a == 'Kalle') {
-    return 'stick!'
-  } else {
-    return `hej ${a}`
-  }
-}
