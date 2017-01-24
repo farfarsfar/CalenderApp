@@ -1,29 +1,31 @@
-import { hej } from './event-list.component';
+import { hej } from './event-admin.component';
 
-const exampleEvents = [
-  {
-    date: '23 aug 2017',
-    time: '21:44',
-    description: 'See Charles'
-  }
-];
 
-describe('event list', () => {
+describe('eventAdmin component', () => {
   var element;
   var scope;
   var controller;
-  
-  beforeEach(() => {
-    angular.mock.module('eventList');
+  var $httpBackend;
 
-    inject(function($rootScope, $compile, $componentController){
+  beforeEach(() => {
+    angular.mock.module('eventAdmin');
+
+    inject(function($rootScope, $compile, $componentController, _$httpBackend_){
     scope = $rootScope.$new();
-    element = angular.element('<event-list></event-list>');
+    element = angular.element('<event-admin></event-admin>');
     element = $compile(element)(scope);
     scope.$apply();
-    controller = $componentController('eventList', {$scope: scope});
+    controller = $componentController('eventAdmin', {$scope: scope});
+    $httpBackend = _$httpBackend_;
+    $httpBackend.verifyNoOutstandingRequest();
     });
   });
+
+  afterEach(function() {
+    //$httpBackend.flush();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
   it('should be defined', () => {
     expect(controller).not.toBeUndefined();
   });
@@ -55,10 +57,10 @@ describe('event list', () => {
     controller.sayHiOnChange('hi');
     expect(console.log).toHaveBeenCalledWith('input field say hi');
   });
-  it('should render the event header', () => {
-    const p = element.find('h2');
-    expect(p.text()).toBe('Events');
-  });
+
+  describe('http requests', () => {
+    it('should call fetchEvents on succesful postEvent')
+  })
 });
 
 describe('test conditional function', () => {

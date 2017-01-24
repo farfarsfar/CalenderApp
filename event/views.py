@@ -18,7 +18,6 @@ class EventsList(APIView):
     def get(self, request):
         # Get Objects from Model
         events = Event.objects.all()
-        print(events)
         # Convert it to JSON, so it returns more then one object
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
