@@ -1,0 +1,37 @@
+
+<div id="wrapper" ng-init="initCal();">
+  <header> 
+    <span id="logo"> Favana Calender </span>
+    <button id="loggain" onClick="window.location.href='/accounts/login'"> LOGGA IN </button>
+  </header>
+ 
+<div id="month_wrapper">
+ <!-- <div id="lastmonth" class="glyphicon glyphicon-chevron-left text-center" ng-click="last_month()"> </div> -->
+
+ <div id="lastmonth" ng-click="last_month()"> < </div>
+	
+	
+  <div id="month"><span id="current_month"> </span>
+  <br> <span id="show_howmany_day"></span> </div>
+ <!-- <div id="nextmonth" class="glyphicon glyphicon-chevron-right text-center" ng-click="next_month()"> </div> -->
+	
+	<div id="nextmonth" ng-click="next_month()"> > </div>
+</div>
+  
+  <div id="weekday_wrapper">
+    <div class="weekday"> SUN </div>
+    <div class="weekday"> MON </div>
+    <div class="weekday"> TIS </div>
+    <div class="weekday"> WED </div>
+    <div class="weekday"> THU </div>
+    <div class="weekday"> FRI </div>
+    <div class="weekday"> SAT </div>
+  </div>
+  <div id="show_totaldays"></div>
+  <div id="bottomwrapper"> 
+    <button class="button_view"> MONTH </button>
+    <button class="button_view"> WEEK </button>
+    <button class="button_view" id="today" ng-click="initCal()"> TODAY </button>
+  </div>
+</div>
+
