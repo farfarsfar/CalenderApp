@@ -27,7 +27,7 @@ module.exports = {
       proxy: 'http://localhost:8000/'
     }),
     new CopyWebpackPlugin([
-       { from: './**/*.html' },
+      {from: './**/*.html'}
     ], {
       copyUnmodified: false
     }),
@@ -45,7 +45,11 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel?presets[]=es2015'},
       {test: /\.css$/, loader: "style!css"},
       {test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url?limit=8192'},
-      {test: /\.(otf|eot|ttf)$/, loader: "file?prefix=font/"},
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
+      {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream"},
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"},
       {test: /\.svg$/, loader: "file"},
       {test: /\.html$/, loader: "ng-cache-loader"}
     ]

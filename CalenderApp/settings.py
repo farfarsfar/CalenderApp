@@ -35,8 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'event',
+    'corsheaders',
     'rest_framework',
+    'event',
     'webpack_loader',
     'accounts',
 ]
@@ -52,6 +53,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'CalenderApp.urls'
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',
+    'localhost:8000',
+)
 
 TEMPLATES = [
     {

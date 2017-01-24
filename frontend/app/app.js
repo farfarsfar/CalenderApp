@@ -19,7 +19,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $l
   $stateProvider.state(adminState);
   $stateProvider.state(eventList);
 
-  $urlRouterProvider.otherwise('/list');
+  $urlRouterProvider.otherwise('/events');
   $locationProvider.html5Mode(true);
 
 // to avoid csrf error for authenticated requests
