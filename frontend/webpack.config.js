@@ -24,7 +24,8 @@ module.exports = {
       // ./public directory is being served
       host: 'localhost',
       port: 3000,
-      proxy: 'http://localhost:8000/'
+      proxy: 'http://localhost:8000/',
+      cors: true
     }),
     new CopyWebpackPlugin([
       {from: './**/*.html'}
