@@ -166,4 +166,4 @@ WEBPACK_LOADER = {
 }
 
 # AUTH Settings
-LOGIN_REDIRECT_URL = '/#!/events/admin'
+LOGIN_REDIRECT_URL = '/events'
