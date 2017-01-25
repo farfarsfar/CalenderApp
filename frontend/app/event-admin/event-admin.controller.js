@@ -4,6 +4,11 @@ export default function($scope, $http) {
   this.$onInit = () => this.fetchEvents();
   this.events;
   this.errorText;
+  this.shouldShow = false;
+
+  $scope.$on('showHideAdmin', (event, bool) => {
+    this.shouldShow = bool;
+  });
 
   this.addItem = () => {
     const newEvent = { 
@@ -24,10 +29,9 @@ export default function($scope, $http) {
   }
   this.fetchEvents = () => {
     $http.get('/api/').then((resp) => {
-      console.log("success: ", resp);
       this.events = resp.data;
     }, (err) => { 
-      console.log("error: ", err)
+      // handle error please
     }
     );
   };
@@ -52,7 +56,6 @@ export default function($scope, $http) {
         }
       }
       this.errorText = error();
-      console.log(error());
   });
   }
 }

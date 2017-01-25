@@ -28,6 +28,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
        { from: './**/*.html' },
+	   { from: './assets/**/*.html' },
     ], {
       copyUnmodified: false
     }),

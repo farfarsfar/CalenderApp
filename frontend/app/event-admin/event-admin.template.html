@@ -1,8 +1,6 @@
-<div>
-  <a href='' ng-click="isEventModalOpen = !isEventModalOpen">New event</a>
-  <div id='event-admin' ng-show="isEventModalOpen" id="eventModal">
-    <input ng-model='$ctrl.addMe' ng-change='$ctrl.sayHiOnChange($ctrl.addMe)'>
-    <button ng-click='$ctrl.addItem()'>New event</button>
-    <p ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
-  </div>
+<div ng-show='$ctrl.shouldShow' id='event-admin' id="eventModal">
+  <button ng-click='$ctrl.shouldShow = false'> close </button>
+  <input ng-model='$ctrl.addMe' ng-change='$ctrl.sayHiOnChange($ctrl.addMe)'>
+  <button ng-click='$ctrl.addItem()'>New event</button>
+  <p ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
 </div>
