@@ -11,12 +11,7 @@
     align-items: center;
     flex: 1;
     padding: 2em;
-  
-    .event-admin-close {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+
     .event-admin-item {
       flex-grow: 1;
       margin: 0.5em;
@@ -27,8 +22,11 @@
     input[type='text']{
       margin: 0;
     }
-    input[type='submit']{
+    .eventSubmitBtn{
       margin: 0;
       background: #36c6d3;
+    }
+    .eventSubmitBtn[disabled]{
+      opacity: 0.5;
     }
   }

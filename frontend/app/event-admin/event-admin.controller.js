@@ -6,22 +6,19 @@ export default function($scope, $http) {
   this.errorText;
   this.shouldShow = false;
 
+
   $scope.$on('showHideAdmin', (event, bool) => {
     this.shouldShow = bool;
   });
 
-  this.addItem = () => {
-    const newEvent = { 
-      title: this.addMe.title,
-      startTime: this.addMe.startTime,
-      endTime: this.addMe.endTime
-    };
+  this.addItem = (title, start, end) => {
     const toPost = { 
-      "Title": newEvent.title,
-      "Start_Time": newEvent.startTime,
-      "End_Time": newEvent.endTime
+      "Title": title,
+      "Start_Time": start,
+      "End_Time": end
     };
     this.postEvent(toPost);
+    this.shouldShow = false;
     this.addMe = {};
   };
   this.sayHiOnChange = (msg) => {
