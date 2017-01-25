@@ -1,6 +1,37 @@
-<div ng-show='$ctrl.shouldShow' id='event-admin' id="eventModal">
-  <button ng-click='$ctrl.shouldShow = false'> close </button>
-  <input ng-model='$ctrl.addMe' ng-change='$ctrl.sayHiOnChange($ctrl.addMe)'>
-  <button ng-click='$ctrl.addItem()'>New event</button>
-  <p ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
+<div id="eventModal" ng-show='$ctrl.shouldShow'>
+  <div class='event-admin-container'>
+    <button class='event-admin-close' ng-click='$ctrl.shouldShow = false'> close </button>
+    <div class='event-admin-item'>
+      <input type='text'
+             placeholder='New event'
+             ng-model='$ctrl.addMe.title'
+             ng-change='$ctrl.sayHiOnChange($ctrl.addMe)'>
+    </div>
+    <div class='event-admin-item'>
+      <input type='text'
+             class='datepicker'
+             locale='en-UK'
+             placeholder="Select start time"
+             max-view='hour'
+             today='true'
+             keyboard='true'
+             ng-model='$ctrl.addMe.startTime'
+             moment-picker="$ctrl.addMe.startTime"></input>
+    </div>
+    <div class='event-admin-item'>
+      <input type='text'
+             class='datepicker'
+             locale='en-UK'
+             placeholder="Select end time"
+             max-view='hour'
+             today='true'
+             keyboard='true'
+             ng-model='$ctrl.addMe.endTime'
+             moment-picker="$ctrl.addMe.endTime"></input>
+    </div>
+    <div class='event-admin-item'>
+      <input type='submit' value='add event' ng-click='$ctrl.addItem()'>
+    </div>
+    <p ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
+  </div>
 </div>

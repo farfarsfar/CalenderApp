@@ -32,6 +32,9 @@ module.exports = {
     ], {
       copyUnmodified: false
     }),
+    new webpack.ProvidePlugin({
+      moment: "moment"
+    }),
     new CleanWebpackPlugin(['webpack_bundles'], {
       root: __dirname,
       verbose: true,

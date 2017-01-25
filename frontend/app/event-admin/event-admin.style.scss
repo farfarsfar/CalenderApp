@@ -1,0 +1,34 @@
+#eventModal {
+  margin-top: 1em;
+  width: 100%;
+  background-color: #364150;
+}
+  .event-admin-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    padding: 2em;
+  
+    .event-admin-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .event-admin-item {
+      flex-grow: 1;
+      margin: 0.5em;
+    }
+    .datepicker {
+      
+    }
+    input[type='text']{
+      margin: 0;
+    }
+    input[type='submit']{
+      margin: 0;
+      background: #36c6d3;
+    }
+  }

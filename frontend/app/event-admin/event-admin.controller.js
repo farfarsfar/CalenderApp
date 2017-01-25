@@ -12,9 +12,9 @@ export default function($scope, $http) {
 
   this.addItem = () => {
     const newEvent = { 
-      title: this.addMe,
-      startTime: moment(),
-      endTime: moment('2017-01-19 22:00')
+      title: this.addMe.title,
+      startTime: this.addMe.startTime,
+      endTime: this.addMe.endTime
     };
     const toPost = { 
       "Title": newEvent.title,
@@ -22,7 +22,7 @@ export default function($scope, $http) {
       "End_Time": newEvent.endTime
     };
     this.postEvent(toPost);
-    this.addMe = '';
+    this.addMe = {};
   };
   this.sayHiOnChange = (msg) => {
     console.log(`input field say ${msg}`)
