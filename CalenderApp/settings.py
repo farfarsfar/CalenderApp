@@ -35,8 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'event',
+    'corsheaders',
     'rest_framework',
+    'event',
     'webpack_loader',
     'accounts',
 ]
@@ -46,10 +47,13 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'CalenderApp.urls'
 
@@ -162,4 +166,4 @@ WEBPACK_LOADER = {
 }
 
 # AUTH Settings
-LOGIN_REDIRECT_URL = '/#!/events/admin'
+LOGIN_REDIRECT_URL = '/events'
