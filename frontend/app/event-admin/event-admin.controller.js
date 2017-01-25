@@ -4,6 +4,11 @@ export default function($scope, $http) {
   this.$onInit = () => this.fetchEvents();
   this.events;
   this.errorText;
+  this.shouldShow = false;
+
+  $scope.$on('showHideAdmin', (event, bool) => {
+    this.shouldShow = bool;
+  });
 
   this.addItem = () => {
     const newEvent = { 

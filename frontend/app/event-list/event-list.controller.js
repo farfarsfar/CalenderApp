@@ -92,4 +92,7 @@ export default function ($scope, $rootScope, $http) {
 		var myEl = angular.element(document.querySelector('.daytoday'));
 		myEl.append('<div class="eventdiv"> <span class="tidstart">13:00 </span> <span class="eventtital"> group study </span>  </div> <div class="eventdiv"> <span class="tidstart">15:00</span> <span class="eventtital"> cooking </span> </div> <div class="eventdiv"> <span class="tidstart">20:00</span> <span class="eventtital"> watching tv </span>  </div>');
 	}
+  $scope.showAdmin = () => {
+    $scope.$broadcast('showHideAdmin', true);
+  }
 }
