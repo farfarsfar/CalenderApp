@@ -53,7 +53,7 @@ export default function ($scope, $rootScope, eventListFactory) {
 				backside.id = $rootScope.iddate + [i];
 				board.appendChild(backside);
 				$rootScope.ooo = document.getElementById($rootScope.iddate + [i]).id;
-				
+				var ooo = document.getElementById($rootScope.iddate + [i]).id;
 				var ttt = moment().format('YYYY, MM, DD');
 
 				var xxx = document.getElementById(ooo).id;
