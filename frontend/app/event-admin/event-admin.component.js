@@ -5,7 +5,7 @@ import '../../scss/vendor/moment-picker.min.css';
 
 
 export default angular.
-  module('eventAdmin', ['moment-picker']).
+  module('eventAdmin', ['moment-picker', 'ngAnimate']).
   component('eventAdmin', {
     template: require('./event-admin.template.html'),
     controller: eventAdminController

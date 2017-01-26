@@ -1,8 +1,9 @@
-<div id="eventModal" ng-show='$ctrl.shouldShow'>
+<div id="eventModal" class='animate-show-hide' ng-show='$ctrl.shouldShow'>
   <form name='adminForm' 
         class='event-admin-container' 
         ng-submit='$ctrl.addItem(title, startTime, endTime)'
         novalidate >
+    <button type='button' ng-click='$ctrl.shouldShow = !$ctrl.shouldShow'>hide</button>
     <div class='event-admin-item'>
       <input type='text'
              placeholder='New event'

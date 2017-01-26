@@ -51,6 +51,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-animate:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.1.tgz#19e3b82b7392e2bbdd83af33c0af0d85437f3a14"
+
 angular-datetime-inputs:
   version "0.1.28"
   resolved "https://registry.yarnpkg.com/angular-datetime-inputs/-/angular-datetime-inputs-0.1.28.tgz#c0782d113aafb274a50759061cd84492f0686b69"

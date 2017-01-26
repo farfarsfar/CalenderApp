@@ -6,7 +6,6 @@ export default function($scope, $http) {
   this.errorText;
   this.shouldShow = false;
 
-
   $scope.$on('showHideAdmin', (event, bool) => {
     this.shouldShow = bool;
   });
