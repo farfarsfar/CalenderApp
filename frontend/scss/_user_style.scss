@@ -20,16 +20,16 @@ $calender-size-with-margins: $calender-size/7 - $cal-margins;
 
 
 #wrapper {
- 
+
   height: 50%;
   margin: 30px auto;
   display: block;
-	
+
 * { box-sizing: border-box;}
 
 .show { display: block; }
 .hide { display: none; }
-	
+
 header {
   height: $top_bar;
   background-color: $color_darkblue;
@@ -55,12 +55,12 @@ header {
 }
 
 #month_wrapper {
- 
+
   width: 70%;
   margin: 0px auto;
   font-size: 20px;
   text-align: center;
-  
+
 }
 #month,#lastmonth, #nextmonth {
   display: inline-block;
@@ -99,17 +99,19 @@ header {
 }
 #show_totaldays {
 	display: inline-block;
+	vertical-align: top;
 	width: $calender-size+px;
-	.daytoday, .unday, .day {
+	.day.today, .unday, .day {
 		width: $calender-size-with-margins+px !important;
 		display: inline-block;
 		margin: 1px;
 		height: 90px;
 	}
-	.daytoday{
+	.day.today{
 		background-color: $color_red;
-		position: relative;
-		float: left;
+        vertical-align: top;
+		//position: relative;
+		//float: left;
 	}
 	.unday{
 		background-color: darkgray !important;
@@ -117,7 +119,7 @@ header {
 		float: left;
 	}
 	.day{
-		
+        vertical-align: top;
 		background-color: ghostwhite;
 
 	}
@@ -186,13 +188,13 @@ header {
   	margin-bottom: 90px;
   }
   label:last-child {
-  
+
   }
   input {
   	width: 220px;
   	height: 40px;
   	border: 1px solid white;
-  
+
   	margin-left: 70px;
   }
 }
@@ -221,7 +223,7 @@ header {
 	text-align: left;
 	font-size: 13px;
 	box-shadow: 1px 0px 3px rgb(38,38,38);
-	
+
 	.tidstart{
 		background-color: white;
         text-align: center;
@@ -229,12 +231,12 @@ header {
 		color: black;
 		float: left
 	}
-	
+
 	.eventtital {
 		padding-top: 1px;
 		display: block;
 		position: relative;
-		//font-size: 12px;	
+		//font-size: 12px;
 		text-align: right;
 		background-color: white;
 		font: right;

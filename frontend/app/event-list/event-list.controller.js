@@ -1,9 +1,12 @@
 import moment from 'moment';
 import $ from 'jquery';
-export default function ($scope, $rootScope, $http) {
+
+
+export default function ($scope, $rootScope, eventListFactory) {
 	$rootScope.x = 0;
 	$rootScope.z = 0;
-	// function to show current month 
+
+	// function to show current month
 	$scope.initCal = function () {
 			$rootScope.time_now = moment().format('YYYY, MMMM');
 			$rootScope.month_header = document.getElementById('current_month');
@@ -14,8 +17,9 @@ export default function ($scope, $rootScope, $http) {
 			$rootScope.z = 0;
 			$scope.showday();
 			$scope.showevent();
+
 		}
-		// function to show date in HTML 
+		// function to show date in HTML
 	$scope.showday = function () {
 		$rootScope.showdays = moment($scope.time).daysInMonth();
 		// show how many days in month
@@ -27,7 +31,7 @@ export default function ($scope, $rootScope, $http) {
 		$rootScope.start_day = moment($rootScope.time_now).format('d');
 		$scope.insert_day($rootScope.iddate);
 	};
-	// show calendar body 
+	// show calendar body
 	$scope.insert_day = function () {
 			var board = document.getElementById('show_totaldays');
 			for (var j = 0; j < $rootScope.start_day; j++) {
@@ -35,6 +39,7 @@ export default function ($scope, $rootScope, $http) {
 				backside.innerHTML = ' ';
 				backside.className = 'unday day';
 				board.appendChild(backside);
+				console.log()
 			}
 			for (var i = 1; i <= $rootScope.showdays; i++) {
 				var backside = document.createElement("div");
@@ -47,7 +52,7 @@ export default function ($scope, $rootScope, $http) {
 				var xxx = document.getElementById(ooo).id;
 				if (ttt === ooo) {
 					ooo = document.getElementById(ooo);
-					ooo.className += "today";
+					ooo.className += " today";
 				}
 			}
 		}
@@ -69,7 +74,7 @@ export default function ($scope, $rootScope, $http) {
 		$scope.insert_day($rootScope.showdays = $scope.showdays_lastmonth, $rootScope.iddate);
 		$rootScope.z = 0;
 	};
-	// function to show next month  
+	// function to show next month
 	$scope.next_month = function () {
 		$('.day').remove();
 		$('.day unday').remove();
@@ -87,10 +92,30 @@ export default function ($scope, $rootScope, $http) {
 		$scope.insert_day($rootScope.showdays = $scope.showdays_nextmonth, $rootScope.iddate);
 		$rootScope.x = 0;
 	};
-	
-	$scope.showevent = function () {
-		var myEl = angular.element(document.querySelector('.daytoday'));
-		myEl.append('<div class="eventdiv"> <span class="tidstart">13:00 </span> <span class="eventtital"> group study </span>  </div> <div class="eventdiv"> <span class="tidstart">15:00</span> <span class="eventtital"> cooking </span> </div> <div class="eventdiv"> <span class="tidstart">20:00</span> <span class="eventtital"> watching tv </span>  </div>');
+
+	$scope.showevent = function (events) {
+    let DayList = document.querySelectorAll('#show_totaldays .day');
+    eventListFactory.getList().then((list) => {
+      for (let i = 0; i < DayList.length; i++) {
+        let obj = DayList[i],
+            objDate = obj.id.replace(', ', '-').replace(', ', '-');
+
+        for (let j = 0; j < list.data.length; j++) {
+          let obj1 = list.data[j];
+          if (moment(objDate).isSame(moment(obj1.Start_Time).startOf('day'))) {
+
+		        $(obj).append(`<div class="eventdiv"> 
+                             <span class="tidstart">${moment(obj1.Start_Time).format('kk:mm')}</span> 
+                             <span class="eventtital">${obj1.Title}</span>  
+                         </div>`);
+          }
+          
+        }
+      }
+    });
+
+
+
 	}
   $scope.showAdmin = () => {
     $scope.$broadcast('showHideAdmin', true);
