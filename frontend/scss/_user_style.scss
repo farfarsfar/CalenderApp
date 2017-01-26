@@ -105,6 +105,7 @@ header {
 		display: inline-block;
 		margin: 1px;
 		height: 90px;
+		
 	}
 	.daytoday{
 		background-color: $color_red;
@@ -222,7 +223,7 @@ header {
 	font-size: 13px;
 	box-shadow: 1px 0px 3px rgb(38,38,38);
 	
-	.tidstart{
+	.tid_start{
 		background-color: white;
         text-align: center;
 		padding-top: 1px;
@@ -230,7 +231,7 @@ header {
 		float: left
 	}
 	
-	.eventtital {
+	.event_title {
 		padding-top: 1px;
 		display: block;
 		position: relative;

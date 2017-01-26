@@ -21,13 +21,15 @@ export default function ($scope, $rootScope, $http) {
 		// show how many days in month
 		$rootScope.iddate = moment().format('YYYY, MM, ');
 		document.getElementById('show_howmany_day').innerHTML = $rootScope.showdays + " days";
-		$('.day').remove();
-		$('.today').remove();
-		$('.daytoday').remove();
+	//	$('.day').remove();
+	//	$('.today').remove();
+		
+	//	$('.daytoday').remove();
 		$rootScope.start_day = moment($rootScope.time_now).format('d');
 		$scope.insert_day($rootScope.iddate);
 	};
-	// show calendar body 
+	
+// show calendar body 
 	$scope.insert_day = function () {
 			var board = document.getElementById('show_totaldays');
 			for (var j = 0; j < $rootScope.start_day; j++) {
@@ -37,22 +39,28 @@ export default function ($scope, $rootScope, $http) {
 				board.appendChild(backside);
 			}
 			for (var i = 1; i <= $rootScope.showdays; i++) {
+				
+				console.log($rootScope.showdays);
 				var backside = document.createElement("div");
 				backside.innerHTML = '' + [i] + '';
 				backside.className = 'day';
 				backside.id = $rootScope.iddate + [i];
 				board.appendChild(backside);
-				var ooo = document.getElementById($rootScope.iddate + [i]).id;
+				$rootScope.ooo = document.getElementById($rootScope.iddate + [i]).id;
+				
 				var ttt = moment().format('YYYY, MM, DD');
-				var xxx = document.getElementById(ooo).id;
-				if (ttt === ooo) {
-					ooo = document.getElementById(ooo);
-					ooo.className += "today";
+				var xxx = document.getElementById($rootScope.ooo).id;
+				
+				if (ttt === $rootScope.ooo) {
+					$rootScope.ooo = document.getElementById($rootScope.ooo);
+					$rootScope.ooo.className += "today";
 				}
+				
 			}
-		}
-		// function to show last month
-	$scope.last_month = function () {
+		}  
+	
+// function to show last month
+$scope.last_month = function () {
 		$('.day').remove();
 		$('.day unday').remove();
 		$('.daytoday').remove();
@@ -89,9 +97,29 @@ export default function ($scope, $rootScope, $http) {
 	};
 	
 	$scope.showevent = function () {
-		var myEl = angular.element(document.querySelector('.daytoday'));
-		myEl.append('<div class="eventdiv"> <span class="tidstart">13:00 </span> <span class="eventtital"> group study </span>  </div> <div class="eventdiv"> <span class="tidstart">15:00</span> <span class="eventtital"> cooking </span> </div> <div class="eventdiv"> <span class="tidstart">20:00</span> <span class="eventtital"> watching tv </span>  </div>');
-	}
+		/* var myEl = angular.element(document.querySelector('.daytoday'));
+		myEl.append('<div class="eventdiv"> <span class="tidstart">13:00 </span> <span class="eventtital"> group study </span>  </div> <div class="eventdiv"> <span class="tidstart">15:00</span> <span class="eventtital"> cooking </span> </div> <div class="eventdiv"> <span class="tidstart">20:00</span> <span class="eventtital"> watching tv </span>  </div>'); */ 
+  /*     $http({
+  method: 'GET',
+  url: 'http://localhost:3000/api/'
+}).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+	    for ( var i=0; i < response.data.length; i++) {
+			
+			var test = moment(response.data[i].Start_Time).format('YYYY, MM, DD');
+			
+			console.log(test);
+		}
+		   
+	
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  }); */
+		
+	};
+	
   $scope.showAdmin = () => {
     $scope.$broadcast('showHideAdmin', true);
   }
