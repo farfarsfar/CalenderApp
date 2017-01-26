@@ -15,7 +15,7 @@ export default function ($scope, $rootScope, $http, eventListFactory) {
 			$rootScope.x = 0;
 			$rootScope.z = 0;
 			$scope.showday();
-			
+			$scope.showevent();
 		}
 		// function to show date in HTML 
 	$scope.showday = function () {
@@ -28,7 +28,7 @@ export default function ($scope, $rootScope, $http, eventListFactory) {
 		$('.daytoday').remove();
 		$rootScope.start_day = moment($rootScope.time_now).format('d');
 		$scope.insert_day();
-		$scope.showevent();
+		
 	};
 	
 // show calendar body 
