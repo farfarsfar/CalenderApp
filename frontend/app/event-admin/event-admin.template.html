@@ -1,14 +1,14 @@
 <div id="eventModal" class='animate-show-hide' ng-show='$ctrl.shouldShow'>
   <form name='adminForm' 
         class='event-admin-container' 
-        ng-submit='$ctrl.addItem(title, startTime, endTime)'
+        ng-submit='$ctrl.addItem()'
         novalidate >
     <button type='button' ng-click='$ctrl.shouldShow = !$ctrl.shouldShow'>hide</button>
     <div class='event-admin-item'>
       <input type='text'
              placeholder='New event'
-             ng-model='title'
-             ng-change='$ctrl.sayHiOnChange(title)'
+             ng-model='$ctrl.newEvent.title'
+             ng-change='$ctrl.sayHiOnChange($ctrl.newEvent.title)'
              ng-required='true'>
     </div>
     <div class='event-admin-item'>
@@ -19,7 +19,7 @@
              max-view='hour'
              today='true'
              keyboard='true'
-             ng-model='startTime'
+             ng-model='$ctrl.newEvent.startTime'
              moment-picker="startTime"
              ng-required='true'></input>
     </div>
@@ -31,7 +31,7 @@
              max-view='hour'
              today='true'
              keyboard='true'
-             ng-model='endTime'
+             ng-model='$ctrl.newEvent.endTime'
              moment-picker="endTime"
              ng-required='true'></input>
     </div>

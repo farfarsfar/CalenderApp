@@ -32,9 +32,9 @@ describe('eventAdmin component', () => {
     controller.addItem();
     expect(controller.postEvent).toHaveBeenCalled();
   });
-  it('addItem should set addMe text to empty object', () => {
+  it('addItem should set newEvent to empty object after adding event', () => {
     controller.addItem();
-    expect(controller.addMe).toEqual({});
+    expect(controller.newEvent).toEqual({});
   })
   it('should have a function to say hi on change', () => {
     spyOn(controller, 'sayHiOnChange').and.callThrough();

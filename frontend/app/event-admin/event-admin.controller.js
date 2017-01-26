@@ -5,23 +5,24 @@ export default function($scope, $http) {
   this.events;
   this.errorText;
   this.shouldShow = false;
+  this.newEvent = {};
 
   $scope.$on('showHideAdmin', (event, bool) => {
     this.shouldShow = bool;
   });
 
-  this.addItem = (title, start, end) => {
+  this.addItem = () => {
     const toPost = { 
-      "Title": title,
-      "Start_Time": start,
-      "End_Time": end
+      "Title": this.newEvent.title,
+      "Start_Time": this.newEvent.startTime,
+      "End_Time": this.newEvent.endTime
     };
     this.postEvent(toPost);
     this.shouldShow = false;
-    this.addMe = {};
+    this.newEvent = {};
   };
   this.sayHiOnChange = (msg) => {
-    console.log(`input field say ${msg}`)
+    console.log(`input field say ${msg}`);
   }
   this.fetchEvents = () => {
     $http.get('/api/').then((resp) => {
