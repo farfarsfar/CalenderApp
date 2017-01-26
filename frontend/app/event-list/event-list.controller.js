@@ -72,6 +72,7 @@ export default function ($scope, $rootScope, $http) {
 					myEl.append('<div class="eventdiv"> <span class="tid_start">'+ $scope.event_start +'</span> - <span class="tid_start">'+ $scope.event_stop +'</span><br><span class="event_title">'+ $scope.event_title +'</span> </div>');
 					
 				}
+				if( $rootScope.showdays == i ){ break loveme; }
 				
 			} 
 		} 
