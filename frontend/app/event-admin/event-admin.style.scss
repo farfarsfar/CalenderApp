@@ -1,0 +1,83 @@
+#eventModal {
+  margin-top: 1em;
+  width: 100%;
+  background-color: #364150;
+  &.animate-show-hide.ng-hide-remove {
+    animation: flipInX ease 0.5s;
+  }
+  &.animate-show-hide.ng-hide-add {
+    animation: flyOut ease-in 0.3s;
+  }
+
+  .event-admin-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    padding: 2em;
+
+    .event-admin-item {
+      flex-grow: 1;
+      margin: 0.5em;
+    }
+    .datepicker {
+      
+    }
+    input[type='text']{
+      margin: 0;
+    }
+    .eventSubmitBtn{
+      margin: 0;
+      background: #36c6d3;
+    }
+    .eventSubmitBtn[disabled]{
+      opacity: 0.5;
+    }
+  }
+}
+
+.animate-show-hide.ng-hide-add + .item {
+  transition-property: margin-top;
+  transition-duration: 0.8s;
+  transition-delay: 0.2s;
+  transition-timing-function: ease;
+  margin-top: -150px;
+}
+
+@keyframes flipInX {
+  0% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 50deg);
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+    transition-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 8deg);
+    opacity: 1;
+  }
+
+  70% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  90% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 3deg);
+  }
+  100% {
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flyOut {
+  0% {
+  }
+  100% {
+    transform: translate3d(2000px, 0, 0);
+  }
+}

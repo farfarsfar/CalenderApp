@@ -10,19 +10,15 @@ export default function($scope, $http) {
     this.shouldShow = bool;
   });
 
-  this.addItem = () => {
-    const newEvent = { 
-      title: this.addMe,
-      startTime: moment(),
-      endTime: moment('2017-01-19 22:00')
-    };
+  this.addItem = (title, start, end) => {
     const toPost = { 
-      "Title": newEvent.title,
-      "Start_Time": newEvent.startTime,
-      "End_Time": newEvent.endTime
+      "Title": title,
+      "Start_Time": start,
+      "End_Time": end
     };
     this.postEvent(toPost);
-    this.addMe = '';
+    this.shouldShow = false;
+    this.addMe = {};
   };
   this.sayHiOnChange = (msg) => {
     console.log(`input field say ${msg}`)

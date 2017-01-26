@@ -87,16 +87,16 @@ header {
   display: flex;
   color: $font_white;
   width: $calender-size !important;
-}
-.weekday{
-  height: 30px;
-  background-color: $weekheader;
-  text-align: center;
-  margin: 1px;
-  padding: 5px 0 0 0;
-  width: $calender-size-with-margins+px;
-}
 
+  .weekday{
+    height: 30px;
+    background-color: $weekheader;
+    text-align: center;
+    margin: 1px;
+    padding: 5px 0 0 0;
+    width: $calender-size-with-margins+px;
+  }
+}
 #show_totaldays {
 	display: inline-block;
 	width: $calender-size+px;
@@ -179,29 +179,29 @@ header {
 		padding: 8px 12px;
 		margin: 50px auto;
 	}
-	
+	label {
+	margin-left: 70px;
+  }
+  label:first-child {
+  	margin-top: 50px;
+  }
+  input:first-child {
+  	margin-top: 0px;
+  	margin-bottom: 90px;
+  }
+  label:last-child {
+  
+  }
+  input {
+  	width: 220px;
+  	height: 40px;
+  	border: 1px solid white;
+  
+  	margin-left: 70px;
+  }
 }
 
-label {
-	margin-left: 70px;
-}
-label:first-child {
-	margin-top: 50px;
-}
-input:first-child {
-	margin-top: 0px;
-	margin-bottom: 90px;
-}
-label:last-child {
-	
-}
-input {
-	width: 220px;
-	height: 40px;
-	border: 1px solid white;
-	
-	margin-left: 70px;
-}
+
 .glyphicon-remove {
 	float: right;
 	display: block;
