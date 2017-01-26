@@ -40,7 +40,7 @@ export default function($scope, $http) {
     }).then((resp) => {
     // this callback will be called asynchronously
     // when the response is available
-      this.fetchEvents();
+      $scope.$emit('eventAdded');
     }, (err) => {
     // called asynchronously if an error occurs
     // or server returns response with an error status.

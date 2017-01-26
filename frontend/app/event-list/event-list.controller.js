@@ -131,4 +131,7 @@ $scope.showevent = function (events) {
   $scope.showAdmin = () => {
     $scope.$broadcast('showHideAdmin', true);
   }
+  $scope.$on('eventAdded', () => {
+    $scope.showevent();
+  });
 }
