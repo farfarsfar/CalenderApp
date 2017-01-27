@@ -18,6 +18,11 @@ module.exports = {
     sourceMapFilename: '[file].map'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
     new BundleTracker({filename: './frontend/webpack-stats.json'}),
     new BrowserSyncPlugin({
       // browse to http://localhost:3000/ during development,
