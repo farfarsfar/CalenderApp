@@ -9,7 +9,7 @@ module.exports = {
   context: path.join(__dirname, '/app'),
   entry: {
     app: './app.js',
-    vendor: ['angular', 'angular-ui-router']
+    vendor: ['angular', 'angular-ui-router', 'angular-animate']
   },
   output: {
     path: path.resolve('./frontend/webpack_bundles/'),
@@ -24,12 +24,16 @@ module.exports = {
       // ./public directory is being served
       host: 'localhost',
       port: 3000,
-      proxy: 'http://localhost:8000/'
+      proxy: 'http://localhost:8000/',
+      cors: true
     }),
     new CopyWebpackPlugin([
-       { from: './**/*.html' },
+      {from: './**/*.html'}
     ], {
       copyUnmodified: false
+    }),
+    new webpack.ProvidePlugin({
+      moment: "moment"
     }),
     new CleanWebpackPlugin(['webpack_bundles'], {
       root: __dirname,
@@ -45,7 +49,11 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel?presets[]=es2015'},
       {test: /\.css$/, loader: "style!css"},
       {test: /\.(png|jpg|jpeg|gif|woff)$/, loader: 'url?limit=8192'},
-      {test: /\.(otf|eot|ttf)$/, loader: "file?prefix=font/"},
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
+      {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream"},
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"},
       {test: /\.svg$/, loader: "file"},
       {test: /\.html$/, loader: "ng-cache-loader"}
     ]

@@ -4,30 +4,30 @@ export default function($scope, $http) {
   this.$onInit = () => this.fetchEvents();
   this.events;
   this.errorText;
+  this.shouldShow = false;
 
-  this.addItem = () => {
-    const newEvent = { 
-      title: this.addMe,
-      startTime: moment(),
-      endTime: moment('2017-01-19 22:00')
-    };
+  $scope.$on('showHideAdmin', (event, bool) => {
+    this.shouldShow = bool;
+  });
+
+  this.addItem = (title, start, end) => {
     const toPost = { 
-      "Title": newEvent.title,
-      "Start_Time": newEvent.startTime,
-      "End_Time": newEvent.endTime
+      "Title": title,
+      "Start_Time": start,
+      "End_Time": end
     };
     this.postEvent(toPost);
-    this.addMe = '';
+    this.shouldShow = false;
+    this.addMe = {};
   };
   this.sayHiOnChange = (msg) => {
     console.log(`input field say ${msg}`)
   }
   this.fetchEvents = () => {
     $http.get('/api/').then((resp) => {
-      console.log("success: ", resp);
       this.events = resp.data;
     }, (err) => { 
-      console.log("error: ", err)
+      // handle error please
     }
     );
   };
@@ -52,7 +52,6 @@ export default function($scope, $http) {
         }
       }
       this.errorText = error();
-      console.log(error());
   });
   }
 }

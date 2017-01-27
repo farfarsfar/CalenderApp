@@ -1,8 +1,46 @@
-<div>
-  <a href='' ng-click="isEventModalOpen = !isEventModalOpen">New event</a>
-  <div id='event-admin' ng-show="isEventModalOpen" id="eventModal">
-    <input ng-model='$ctrl.addMe' ng-change='$ctrl.sayHiOnChange($ctrl.addMe)'>
-    <button ng-click='$ctrl.addItem()'>New event</button>
+<div id="eventModal" class='animate-show-hide' ng-show='$ctrl.shouldShow'>
+  <form name='adminForm' 
+        class='event-admin-container' 
+        ng-submit='$ctrl.addItem(title, startTime, endTime)'
+        novalidate >
+    <button type='button' ng-click='$ctrl.shouldShow = !$ctrl.shouldShow'>hide</button>
+    <div class='event-admin-item'>
+      <input type='text'
+             placeholder='New event'
+             ng-model='title'
+             ng-change='$ctrl.sayHiOnChange(title)'
+             ng-required='true'>
+    </div>
+    <div class='event-admin-item'>
+      <input type='text'
+             class='datepicker'
+             locale='en-UK'
+             placeholder="Select start time"
+             max-view='hour'
+             today='true'
+             keyboard='true'
+             ng-model='startTime'
+             moment-picker="startTime"
+             ng-required='true'></input>
+    </div>
+    <div class='event-admin-item'>
+      <input type='text'
+             class='datepicker'
+             locale='en-UK'
+             placeholder="Select end time"
+             max-view='hour'
+             today='true'
+             keyboard='true'
+             ng-model='endTime'
+             moment-picker="endTime"
+             ng-required='true'></input>
+    </div>
+    <div class='event-admin-item'>
+      <input type='submit' 
+             class='eventSubmitBtn'
+             value='add event' 
+             ng-disabled='adminForm.$invalid'>
+    </div>
     <p ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
-  </div>
+  </form>
 </div>
