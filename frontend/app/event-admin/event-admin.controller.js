@@ -5,23 +5,22 @@ export default function($scope, $http) {
   this.events;
   this.errorText;
   this.shouldShow = false;
+  this.newEvent = {};
 
   $scope.$on('showHideAdmin', (event, bool) => {
     this.shouldShow = bool;
   });
 
-  this.addItem = (title, start, end) => {
+  this.addItem = () => {
     const toPost = { 
-      "Title": title,
-      "Start_Time": start,
-      "End_Time": end
+      "Title": this.newEvent.title,
+      "Start_Time": this.newEvent.startTime,
+      "End_Time": this.newEvent.endTime
     };
     this.postEvent(toPost);
-    this.shouldShow = false;
-    this.addMe = {};
   };
   this.sayHiOnChange = (msg) => {
-    console.log(`input field say ${msg}`)
+    console.log(`input field say ${msg}`);
   }
   this.fetchEvents = () => {
     $http.get('/api/').then((resp) => {
@@ -39,12 +38,16 @@ export default function($scope, $http) {
     }).then((resp) => {
     // this callback will be called asynchronously
     // when the response is available
-      this.fetchEvents();
+      $scope.$emit('eventAdded');
+      this.shouldShow = false;
+      this.newEvent = {};
     }, (err) => {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
       const error = () => { 
         switch(err.status) {
+          case 400:
+            return "Hmm. We seem to have sent a bad request (400). Probably a programmer error!"
           case 403: 
             return "It seems you are not authorized to post events. Try logging in as an administrator."
           default:

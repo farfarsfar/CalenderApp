@@ -1,14 +1,15 @@
-<div id="eventModal" class='animate-show-hide' ng-show='$ctrl.shouldShow'>
+<div class='animate-container' ng-show='$ctrl.shouldShow'>
+  <div id="eventModal" class='animate-show-hide' ng-show='$ctrl.shouldShow'>
   <form name='adminForm' 
         class='event-admin-container' 
-        ng-submit='$ctrl.addItem(title, startTime, endTime)'
+        ng-submit='$ctrl.addItem()'
         novalidate >
     <button type='button' ng-click='$ctrl.shouldShow = !$ctrl.shouldShow'>hide</button>
     <div class='event-admin-item'>
       <input type='text'
              placeholder='New event'
-             ng-model='title'
-             ng-change='$ctrl.sayHiOnChange(title)'
+             ng-model='$ctrl.newEvent.title'
+             ng-change='$ctrl.sayHiOnChange($ctrl.newEvent.title)'
              ng-required='true'>
     </div>
     <div class='event-admin-item'>
@@ -19,7 +20,7 @@
              max-view='hour'
              today='true'
              keyboard='true'
-             ng-model='startTime'
+             ng-model='$ctrl.newEvent.startTime'
              moment-picker="startTime"
              ng-required='true'></input>
     </div>
@@ -31,16 +32,17 @@
              max-view='hour'
              today='true'
              keyboard='true'
-             ng-model='endTime'
+             ng-model='$ctrl.newEvent.endTime'
              moment-picker="endTime"
              ng-required='true'></input>
     </div>
-    <div class='event-admin-item'>
+    <div class='event-admin-item submit'>
       <input type='submit' 
              class='eventSubmitBtn'
              value='add event' 
              ng-disabled='adminForm.$invalid'>
     </div>
-    <p ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
+    <p class='event-admin-item error-text animate-show-hide' ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
   </form>
+</div>
 </div>
