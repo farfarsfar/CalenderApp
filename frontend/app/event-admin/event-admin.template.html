@@ -1,4 +1,5 @@
-<div id="eventModal" class='animate-show-hide' ng-show='$ctrl.shouldShow'>
+<div class='animate-container' ng-show='$ctrl.shouldShow'>
+  <div id="eventModal" class='animate-show-hide' ng-show='$ctrl.shouldShow'>
   <form name='adminForm' 
         class='event-admin-container' 
         ng-submit='$ctrl.addItem()'
@@ -43,4 +44,5 @@
     </div>
     <p class='event-admin-item error-text animate-show-hide' ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
   </form>
+</div>
 </div>

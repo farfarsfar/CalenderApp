@@ -1,3 +1,17 @@
+.animate-container {
+  max-height: 300px;
+  &.ng-hide {
+    max-height: 0;
+  }
+  &.ng-hide-remove {
+    transition: all ease 0.3s;
+  }
+  &.ng-hide-add {
+    transition: all ease-in 0.25s;
+  }
+ 
+}
+
 #eventModal {
   margin-top: 1em;
   width: 100%;
@@ -89,7 +103,7 @@
 @keyframes flyOut {
   0% {
   }
+  50% {transform: translate3d(2000px, 0, 0);}
   100% {
-    transform: translate3d(2000px, 0, 0);
   }
 }
