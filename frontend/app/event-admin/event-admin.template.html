@@ -35,12 +35,12 @@
              moment-picker="endTime"
              ng-required='true'></input>
     </div>
-    <div class='event-admin-item'>
+    <div class='event-admin-item submit'>
       <input type='submit' 
              class='eventSubmitBtn'
              value='add event' 
              ng-disabled='adminForm.$invalid'>
     </div>
-    <p ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
+    <p class='event-admin-item error-text animate-show-hide' ng-show='$ctrl.errorText'>{{$ctrl.errorText}}</p>
   </form>
 </div>

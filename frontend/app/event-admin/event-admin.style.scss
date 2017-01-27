@@ -15,13 +15,25 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex: 1;
+    flex-wrap: wrap;
     padding: 2em;
 
     .event-admin-item {
-      flex-grow: 1;
       margin: 0.5em;
+      min-width: 180px;
+      &.submit {
+        margin-left: 4em;
+      }
+      &.error-text {
+        min-width: 100%;
+        text-align: center;
+        color: white;
+        &.animate-show-hide.ng-hide-remove {
+          animation: flipInX ease 0.5s;
+        }
+      }
     }
+    
     .datepicker {
       
     }
