@@ -1,26 +1,27 @@
+import moment from 'moment';
 
 export default function($scope, $http) {
   this.$onInit = () => this.fetchEvents();
   this.events;
   this.errorText;
   this.shouldShow = false;
-  this.newEvent = {};
-  this.today = moment();
-  
+
   $scope.$on('showHideAdmin', (event, bool) => {
     this.shouldShow = bool;
   });
-  
-  this.addItem = () => {
+
+  this.addItem = (title, start, end) => {
     const toPost = { 
-      "Title": this.newEvent.title,
-      "Start_Time": this.newEvent.startTime,
-      "End_Time": this.newEvent.endTime
+      "Title": title,
+      "Start_Time": start,
+      "End_Time": end
     };
     this.postEvent(toPost);
+    this.shouldShow = false;
+    this.addMe = {};
   };
   this.sayHiOnChange = (msg) => {
-    console.log(`input field say ${msg}`);
+    console.log(`input field say ${msg}`)
   }
   this.fetchEvents = () => {
     $http.get('/api/').then((resp) => {
@@ -38,16 +39,12 @@ export default function($scope, $http) {
     }).then((resp) => {
     // this callback will be called asynchronously
     // when the response is available
-      $scope.$emit('eventAdded');
-      this.shouldShow = false;
-      this.newEvent = {};
+      this.fetchEvents();
     }, (err) => {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
       const error = () => { 
         switch(err.status) {
-          case 400:
-            return "Hmm. We seem to have sent a bad request (400). Probably a programmer error!"
           case 403: 
             return "It seems you are not authorized to post events. Try logging in as an administrator."
           default:
