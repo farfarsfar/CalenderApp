@@ -11,7 +11,7 @@
              ng-change='$ctrl.sayHiOnChange($ctrl.newEvent.title)'
              ng-required='true'>
     </div>
-    <div class='event-admin-item'>
+    <div class='event-admin-item' ng-show='$ctrl.newEvent.title'>
       <input type='text'
              class='datepicker'
              locale='sv'
@@ -26,7 +26,7 @@
              moment-picker="startTime"
              ng-required='true'></input>
     </div>
-    <div class='event-admin-item'>
+    <div class='event-admin-item' ng-show='startTime'>
       <input type='text'
              class='datepicker'
              locale='sv'
