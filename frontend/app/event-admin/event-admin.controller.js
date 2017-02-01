@@ -1,4 +1,3 @@
-import moment from 'moment';
 
 export default function($scope, $http) {
   this.$onInit = () => this.fetchEvents();
@@ -6,11 +5,12 @@ export default function($scope, $http) {
   this.errorText;
   this.shouldShow = false;
   this.newEvent = {};
-
+  this.today = moment();
+  
   $scope.$on('showHideAdmin', (event, bool) => {
     this.shouldShow = bool;
   });
-
+  
   this.addItem = () => {
     const toPost = { 
       "Title": this.newEvent.title,
