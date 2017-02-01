@@ -5,15 +5,7 @@ export default function ($scope, $rootScope, eventListFactory) {
 	$rootScope.x = 0;
 	$rootScope.z = 0;
   moment.locale('sv');
-  $scope.weekdays = [
-    moment.weekdays(0),
-    moment.weekdays(1),
-    moment.weekdays(2),
-    moment.weekdays(3),
-    moment.weekdays(4),
-    moment.weekdays(5),
-    moment.weekdays(6)
-  ]
+  $scope.weekdays = moment.weekdays();
 	// function to show current month
 	$scope.initCal = function () {
 			$rootScope.time_now = moment().format('YYYY, MMMM');
